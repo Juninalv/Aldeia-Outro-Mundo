@@ -29,3 +29,54 @@ window.addEventListener("load", () => {
     }
   });
 });
+
+/* TIMELINE */
+const timelineItems = document.querySelectorAll(".timeline-item");
+
+const timelineObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  {
+    threshold: 0.3,
+  },
+);
+
+timelineItems.forEach((item) => {
+  timelineObserver.observe(item);
+});
+
+const slider = document.querySelector(".timeline-container");
+
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener("mousedown", (e) => {
+  isDown = true;
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener("mouseleave", () => {
+  isDown = false;
+});
+
+slider.addEventListener("mouseup", () => {
+  isDown = false;
+});
+
+slider.addEventListener("mousemove", (e) => {
+  if (!isDown) return;
+
+  e.preventDefault();
+
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 2;
+
+  slider.scrollLeft = scrollLeft - walk;
+});
