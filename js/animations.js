@@ -179,3 +179,45 @@ document.addEventListener("DOMContentLoaded", () => {
     projetosSlider.scrollLeft = scrollLeft - walk;
   });
 });
+/* GALERIA AUTOMÁTICA - PROPÓSITO */
+
+const imagensProposito = [
+  "./img/arte.jpg",
+  "./img/ecologia.jpg",
+  "./img/educacao.jpg",
+  "./img/galeria-2.JPG",
+  "./img/galeria-7.jpg",
+  "./img/palco-chillout.jpg",
+  "./img/galeria-8.jpg",
+  "./img/gaia-conection.jpg",
+  "./img/mundo-de-oz.jpg",
+];
+
+const imagens = document.querySelectorAll(".proposito-images img");
+
+let indice = 3;
+let posicao = 0;
+
+if (imagens.length) {
+  setInterval(() => {
+    imagens[posicao].style.opacity = "0";
+
+    setTimeout(() => {
+      imagens[posicao].src = imagensProposito[indice];
+
+      imagens[posicao].style.opacity = "1";
+
+      indice++;
+
+      if (indice >= imagensProposito.length) {
+        indice = 0;
+      }
+
+      posicao++;
+
+      if (posicao >= imagens.length) {
+        posicao = 0;
+      }
+    }, 500);
+  }, 3000);
+}
