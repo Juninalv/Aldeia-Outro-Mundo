@@ -4,7 +4,7 @@
 
 .sustentabilidade {
   padding: 100px 0;
-  background: #f6f0e7;
+  background: var(--bege);
 }
 
 .sustentabilidade .section-header {
@@ -13,13 +13,13 @@
 
 .sustentabilidade .section-header h2 {
   font-size: clamp(2rem, 4vw, 3.5rem);
-  color: #1f2e1d;
+  color: var(--verde-escuro);
   margin-bottom: 12px;
 }
 
 .sustentabilidade .section-header p {
   max-width: 650px;
-  color: #5f5f5f;
+  color: var(--cinza-escuro);
   line-height: 1.7;
 }
 
@@ -62,13 +62,11 @@
   position: absolute;
   inset: 0;
   z-index: 2;
-
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-
   padding: 30px;
-  color: white;
+  color: var(--branco);
 }
 
 .card-content h3 {
@@ -79,15 +77,24 @@
 .expand-content {
   max-height: 0;
   overflow: hidden;
-
   opacity: 0;
-
   transition: all 0.4s ease;
 }
 
 .sust-card.active .expand-content {
-  max-height: 500px;
+  max-height: 380px;
+  overflow-y: auto;
   opacity: 1;
+  padding-right: 8px;
+}
+
+.sust-card.active .expand-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sust-card.active .expand-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
 }
 
 .expand-content p {
@@ -110,7 +117,7 @@
   content: "•";
   position: absolute;
   left: 0;
-  color: #d8b67d;
+  color: var(--amarelo-claro);
 }
 
 /* =========================
@@ -120,18 +127,13 @@
 .sust-modal {
   position: fixed;
   inset: 0;
-
   background: rgba(0, 0, 0, 0.85);
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   opacity: 0;
   visibility: hidden;
-
   transition: 0.3s;
-
   z-index: 9999;
 }
 
@@ -144,10 +146,8 @@
   width: 92%;
   max-width: 700px;
   max-height: 90vh;
-
   overflow-y: auto;
-
-  background: white;
+  background: var(--branco);
   border-radius: 24px;
 
   position: relative;
@@ -164,33 +164,49 @@
 }
 
 .modal-body h3 {
-  color: #1f2e1d;
+  color: var(--verde-escuro);
   font-size: 2rem;
   margin-bottom: 15px;
 }
 
 .modal-body p {
-  color: #5f5f5f;
+  color: var(--cinza-escuro);
   line-height: 1.8;
 }
 
 .modal-close {
   position: absolute;
-
   top: 15px;
   right: 15px;
-
   width: 42px;
   height: 42px;
-
   border: none;
   border-radius: 50%;
-
   background: rgba(255, 255, 255, 0.95);
-
   cursor: pointer;
-
   font-size: 1.2rem;
+}
+
+.modal-body h4 {
+  margin: 24px 0 10px;
+  color: var(--verde-escuro);
+  font-size: 1.2rem;
+}
+
+.modal-body p {
+  color: var(--cinza-escuro);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.modal-body ul {
+  padding-left: 20px;
+  margin-top: 20px;
+}
+
+.modal-body li {
+  margin-bottom: 10px;
+  line-height: 1.7;
 }
 
 /* =========================

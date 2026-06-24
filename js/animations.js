@@ -97,19 +97,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cards.forEach((card) => {
     card.addEventListener("click", () => {
-      // DESKTOP
+      /* DESKTOP */
       if (window.innerWidth > 768) {
         cards.forEach((item) => item.classList.remove("active"));
         card.classList.add("active");
         return;
       }
 
-      // MOBILE
+      /* MOBILE */
       if (!modal) return;
 
+      const expandContent = card.querySelector(".expand-content");
+      const cardImg = card.querySelector("img");
+
       modalTitle.textContent = card.dataset.title || "";
-      modalText.textContent = card.dataset.text || "";
-      modalImg.src = card.dataset.img || "";
+
+      modalText.innerHTML = expandContent ? expandContent.innerHTML : "";
+
+      modalImg.src = cardImg ? cardImg.src : "";
+
+      modalImg.alt = card.dataset.title || "";
 
       modal.classList.add("show");
       document.body.style.overflow = "hidden";
