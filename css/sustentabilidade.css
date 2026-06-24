@@ -81,11 +81,20 @@
   transition: all 0.4s ease;
 }
 
+/* TÍTULOS DOS CARDS */
+
+.expand-content h4 {
+  margin: 22px 0 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--branco);
+}
+
 .sust-card.active .expand-content {
   max-height: 380px;
   overflow-y: auto;
   opacity: 1;
-  padding-right: 8px;
+  padding-right: 10px;
 }
 
 .sust-card.active .expand-content::-webkit-scrollbar {
@@ -93,24 +102,35 @@
 }
 
 .sust-card.active .expand-content::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.35);
   border-radius: 20px;
 }
 
+.sust-card.active .expand-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* PARÁGRAFOS */
+
 .expand-content p {
   line-height: 1.7;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  color: var(--bege);
 }
+
+/* LISTA */
 
 .expand-content ul {
   list-style: none;
   padding: 0;
+  margin-top: 20px;
 }
 
 .expand-content li {
   position: relative;
   padding-left: 18px;
   margin-bottom: 10px;
+  line-height: 1.7;
 }
 
 .expand-content li::before {
@@ -118,6 +138,7 @@
   position: absolute;
   left: 0;
   color: var(--amarelo-claro);
+  font-weight: bold;
 }
 
 /* =========================
@@ -187,26 +208,45 @@
   font-size: 1.2rem;
 }
 
+/* TÍTULOS */
+
 .modal-body h4 {
-  margin: 24px 0 10px;
+  margin: 24px 0 12px;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: var(--verde-escuro);
-  font-size: 1.2rem;
 }
+
+/* PARÁGRAFOS */
 
 .modal-body p {
-  color: var(--cinza-escuro);
   line-height: 1.8;
   margin-bottom: 16px;
+  color: var(--cinza-escuro);
 }
 
+/* LISTA */
+
 .modal-body ul {
-  padding-left: 20px;
+  list-style: none;
+  padding: 0;
   margin-top: 20px;
 }
 
 .modal-body li {
+  position: relative;
+  padding-left: 18px;
   margin-bottom: 10px;
   line-height: 1.7;
+  color: var(--cinza-escuro);
+}
+
+.modal-body li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--amarelo-claro);
+  font-weight: bold;
 }
 
 /* =========================
