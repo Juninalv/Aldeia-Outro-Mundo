@@ -11,6 +11,7 @@
 .proposito-text h2 {
   font-size: 3.5rem;
   margin-bottom: 20px;
+  color: var(--primary-light);
 }
 
 .proposito-text p {

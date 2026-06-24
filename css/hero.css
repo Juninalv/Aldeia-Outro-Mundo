@@ -27,7 +27,7 @@
 
 .hero-content {
   max-width: 700px;
-  color: white;
+  color: var(--text-secondary);
 }
 
 .hero-tag {
@@ -59,12 +59,9 @@
 .btn-primary {
   padding: 16px 30px;
   border-radius: 50px;
-
-  background: white;
-  color: var(--primary);
-
+  background: var(--background-primary);
+  color: var(--text-primary);
   font-weight: 600;
-
   transition: 0.3s;
 }
 
@@ -74,13 +71,9 @@
 
 .btn-outline {
   padding: 16px 30px;
-
   border-radius: 50px;
-
   border: 1px solid rgba(255, 255, 255, 0.5);
-
   color: white;
-
   transition: 0.3s;
 }
 
