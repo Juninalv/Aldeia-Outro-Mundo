@@ -77,7 +77,7 @@ if (slider) {
     e.preventDefault();
 
     const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2;
+    const walk = (x - startX) * 0.6;
 
     slider.scrollLeft = scrollLeft - walk;
   });
@@ -143,86 +143,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const projetosSlider = document.querySelector(".projetos-grid");
-  const projetoCards = document.querySelectorAll(".projeto-card");
-  const dotsContainer = document.querySelector(".slider-dots");
 
-  if (
-    !projetosSlider ||
-    !projetoCards.length ||
-    !dotsContainer ||
-    window.innerWidth > 768
-  ) {
-    return;
-  }
+  if (!projetosSlider) return;
 
-  /* CRIA BOLINHAS */
+  let isDown = false;
+  let startX;
+  let scrollLeft;
 
-  projetoCards.forEach((_, index) => {
-    const dot = document.createElement("span");
+  projetosSlider.addEventListener("mousedown", (e) => {
+    isDown = true;
+    projetosSlider.classList.add("dragging");
 
-    if (index === 0) {
-      dot.classList.add("active");
-    }
-
-    dot.addEventListener("click", () => {
-      projetosSlider.scrollTo({
-        left: projetoCards[index].offsetLeft,
-        behavior: "smooth",
-      });
-    });
-
-    dotsContainer.appendChild(dot);
+    startX = e.pageX - projetosSlider.offsetLeft;
+    scrollLeft = projetosSlider.scrollLeft;
   });
 
-  const dots = document.querySelectorAll(".slider-dots span");
-
-  /* ATUALIZA BOLINHA ATIVA */
-
-  projetosSlider.addEventListener("scroll", () => {
-    let current = 0;
-
-    projetoCards.forEach((card, index) => {
-      const rect = card.getBoundingClientRect();
-
-      if (rect.left >= -rect.width / 2 && rect.left < window.innerWidth / 2) {
-        current = index;
-      }
-    });
-
-    dots.forEach((dot) => dot.classList.remove("active"));
-
-    if (dots[current]) {
-      dots[current].classList.add("active");
-    }
+  projetosSlider.addEventListener("mouseleave", () => {
+    isDown = false;
+    projetosSlider.classList.remove("dragging");
   });
 
-  /* BOTÃO PRÓXIMO */
+  projetosSlider.addEventListener("mouseup", () => {
+    isDown = false;
+    projetosSlider.classList.remove("dragging");
+  });
 
-  const nextBtn = document.querySelector(".next");
+  projetosSlider.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
 
-  if (nextBtn) {
-    nextBtn.addEventListener("click", () => {
-      const cardWidth = projetoCards[0].offsetWidth + 16;
+    e.preventDefault();
 
-      projetosSlider.scrollBy({
-        left: cardWidth,
-        behavior: "smooth",
-      });
-    });
-  }
+    const x = e.pageX - projetosSlider.offsetLeft;
+    const walk = (x - startX) * 2;
 
-  /* BOTÃO ANTERIOR */
-
-  const prevBtn = document.querySelector(".prev");
-
-  if (prevBtn) {
-    prevBtn.addEventListener("click", () => {
-      const cardWidth = projetoCards[0].offsetWidth + 16;
-
-      projetosSlider.scrollBy({
-        left: -cardWidth,
-        behavior: "smooth",
-      });
-    });
-  }
+    projetosSlider.scrollLeft = scrollLeft - walk;
+  });
 });
