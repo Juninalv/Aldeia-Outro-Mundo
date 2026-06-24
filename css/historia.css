@@ -1,7 +1,7 @@
 .historia {
   padding: 120px 0;
   background: var(--verde-escuro);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .historia h2 {
@@ -34,8 +34,11 @@
 
 .timeline-container {
   overflow-x: auto;
+  overflow-y: hidden;
   scrollbar-width: none;
   cursor: grab;
+  width: 100%;
+  max-width: 100%;
 }
 
 .timeline-container::-webkit-scrollbar {
@@ -65,7 +68,7 @@
   flex-shrink: 0;
   opacity: 0;
   transform: translateY(40px);
-  transition: 2.2s ease;
+  transition: 1.2s ease;
 }
 
 .timeline-item.show {
@@ -116,4 +119,15 @@
 .timeline-content p {
   color: var(--cinza-claro);
   line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .timeline-track {
+    padding: 30px 20px 60px;
+    gap: 30px;
+  }
+
+  .timeline-track::before {
+    left: 20px;
+    right: 20px;
+  }
 }
