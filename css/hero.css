@@ -27,7 +27,7 @@
 
 .hero-content {
   max-width: 700px;
-  color: var(--text-secondary);
+  color: var(--bege);
 }
 
 .hero-tag {
@@ -36,7 +36,7 @@
   font-size: 0.9rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--cinza-transparente);
 }
 
 .hero h1 {
@@ -47,7 +47,7 @@
 
 .hero p {
   max-width: 600px;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--cinza-transparente);
   font-size: 1rem;
   margin-bottom: 40px;
 }
@@ -59,8 +59,8 @@
 .btn-primary {
   padding: 16px 30px;
   border-radius: 50px;
-  background: var(--background-primary);
-  color: var(--text-primary);
+  background: var(--branco);
+  color: var(--preto);
   font-weight: 600;
   transition: 0.3s;
 }

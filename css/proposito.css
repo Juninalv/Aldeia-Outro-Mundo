@@ -11,12 +11,13 @@
 .proposito-text h2 {
   font-size: 3.5rem;
   margin-bottom: 20px;
-  color: var(--primary-light);
+  color: var(--verde-claro);
 }
 
 .proposito-text p {
   max-width: 650px;
   font-size: 1.2rem;
+  color: var(--cinza-escuro);
 }
 
 /* IMAGENS */
@@ -60,12 +61,13 @@
 .pilar h3 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #4d2b1f;
+  color: var(--verde-claro);
 }
 
 .pilar p {
   max-width: 350px;
   margin: auto;
+  color: var(--cinza-escuro);
 }
 
 .pilar:nth-child(1) {
@@ -83,23 +85,18 @@
 .pilar-icon {
   width: 90px;
   height: 90px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   margin: 0 auto 25px;
-
   border-radius: 50%;
-
   background: rgba(22, 52, 31, 0.08);
-
   transition: 0.4s ease;
 }
 
 .pilar-icon i {
   font-size: 2.3rem;
-  color: var(--primary);
+  color: var(--verde-claro);
 }
 
 .pilar:hover .pilar-icon {
@@ -112,15 +109,11 @@
 
 .pilares::before {
   content: "";
-
   position: absolute;
-
   top: 45px;
   left: 15%;
-
   width: 70%;
   height: 1px;
-
   background: rgba(22, 52, 31, 0.15);
 }
 /* RESPONSIVO */
