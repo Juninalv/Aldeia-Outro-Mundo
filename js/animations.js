@@ -52,31 +52,83 @@ timelineItems.forEach((item) => {
 
 const slider = document.querySelector(".timeline-container");
 
-let isDown = false;
-let startX;
-let scrollLeft;
+if (slider) {
+  let isDown = false;
+  let startX;
+  let scrollLeft;
 
-slider.addEventListener("mousedown", (e) => {
-  isDown = true;
-  startX = e.pageX - slider.offsetLeft;
-  scrollLeft = slider.scrollLeft;
-});
+  slider.addEventListener("mousedown", (e) => {
+    isDown = true;
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
 
-slider.addEventListener("mouseleave", () => {
-  isDown = false;
-});
+  slider.addEventListener("mouseleave", () => {
+    isDown = false;
+  });
 
-slider.addEventListener("mouseup", () => {
-  isDown = false;
-});
+  slider.addEventListener("mouseup", () => {
+    isDown = false;
+  });
 
-slider.addEventListener("mousemove", (e) => {
-  if (!isDown) return;
+  slider.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
 
-  e.preventDefault();
+    e.preventDefault();
 
-  const x = e.pageX - slider.offsetLeft;
-  const walk = (x - startX) * 2;
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2;
 
-  slider.scrollLeft = scrollLeft - walk;
+    slider.scrollLeft = scrollLeft - walk;
+  });
+}
+
+/* SUSTENTABILIDADE */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".sust-card");
+
+  const modal = document.getElementById("sustModal");
+  const closeModal = document.getElementById("closeModal");
+
+  const modalTitle = document.getElementById("modalTitle");
+  const modalText = document.getElementById("modalText");
+  const modalImg = document.getElementById("modalImg");
+
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      // DESKTOP
+      if (window.innerWidth > 768) {
+        cards.forEach((item) => item.classList.remove("active"));
+        card.classList.add("active");
+        return;
+      }
+
+      // MOBILE
+      if (!modal) return;
+
+      modalTitle.textContent = card.dataset.title || "";
+      modalText.textContent = card.dataset.text || "";
+      modalImg.src = card.dataset.img || "";
+
+      modal.classList.add("show");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  if (closeModal) {
+    closeModal.addEventListener("click", () => {
+      modal.classList.remove("show");
+      document.body.style.overflow = "";
+    });
+  }
+
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.remove("show");
+        document.body.style.overflow = "";
+      }
+    });
+  }
 });
