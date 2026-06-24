@@ -1,0 +1,270 @@
+/* ===================================
+   SEÇÃO PROJETOS
+=================================== */
+
+.projetos {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  gap: 60px;
+  align-items: center;
+  padding: 100px 5%;
+  background: var(--verde-escuro);
+}
+
+/* ===================================
+   TEXTO ESQUERDA
+=================================== */
+
+.projetos-info {
+  color: var(--bege);
+}
+
+.projetos-info h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.projetos-info p {
+  line-height: 1.8;
+  color: var(--cinza-claro);
+  margin-bottom: 30px;
+}
+
+.btn-principal {
+  display: inline-block;
+  padding: 14px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  color: var(--branco);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-principal:hover {
+  background: var(--branco);
+  color: var(--verde-escuro);
+}
+
+/* ===================================
+   GRID
+=================================== */
+
+.projetos-container {
+  position: relative;
+}
+
+.projetos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* ===================================
+   CARD
+=================================== */
+
+.projeto-card {
+  background: var(--bege);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.projeto-card:hover {
+  transform: translateY(-8px);
+}
+
+/* ===================================
+   IMAGEM
+=================================== */
+
+.projeto-imagem {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.projeto-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.projeto-card:hover .projeto-imagem img {
+  transform: scale(1.05);
+}
+
+/* ===================================
+   TEXTO ABAIXO DA FOTO
+=================================== */
+
+.projeto-info-card {
+  padding: 24px;
+}
+
+.projeto-info-card h3 {
+  font-size: 1.35rem;
+  color: var(--verde-claro);
+  margin-bottom: 12px;
+}
+
+.projeto-info-card p {
+  color: var(--cinza-escuro);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.projeto-info-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--verde-escuro);
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.projeto-info-card a:hover {
+  transform: translateX(5px);
+}
+
+/* ===================================
+   RESPONSIVO
+=================================== */
+
+@media (max-width: 768px) {
+  .projetos {
+    display: flex;
+    flex-direction: column;
+    padding: 60px 20px;
+    gap: 40px;
+  }
+
+  /* TEXTO */
+
+  .projetos-info {
+    width: 100%;
+    text-align: center;
+  }
+
+  .projetos-info h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .projetos-info p {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+
+  .btn-principal {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+
+  /* CARROSSEL */
+
+  .projetos-container {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .projetos-grid {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .projetos-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .projeto-card {
+    min-width: 85%;
+    max-width: 85%;
+    scroll-snap-align: center;
+    flex-shrink: 0;
+  }
+
+  /* IMAGEM */
+
+  .projeto-imagem {
+    height: 220px;
+  }
+
+  /* TEXTO */
+
+  .projeto-info-card {
+    padding: 20px;
+  }
+
+  .projeto-info-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .projeto-info-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* SETAS */
+
+  .slider-btn {
+    display: flex;
+
+    position: absolute;
+    top: 110px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 10;
+  }
+
+  .prev {
+    left: 10px;
+  }
+
+  .next {
+    right: 10px;
+  }
+
+  /* BOLINHAS */
+
+  .slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .slider-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  .slider-dots span.active {
+    background: #fff;
+    transform: scale(1.2);
+  }
+}

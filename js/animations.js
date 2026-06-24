@@ -139,3 +139,90 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+/* PROJETOS */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const projetosSlider = document.querySelector(".projetos-grid");
+  const projetoCards = document.querySelectorAll(".projeto-card");
+  const dotsContainer = document.querySelector(".slider-dots");
+
+  if (
+    !projetosSlider ||
+    !projetoCards.length ||
+    !dotsContainer ||
+    window.innerWidth > 768
+  ) {
+    return;
+  }
+
+  /* CRIA BOLINHAS */
+
+  projetoCards.forEach((_, index) => {
+    const dot = document.createElement("span");
+
+    if (index === 0) {
+      dot.classList.add("active");
+    }
+
+    dot.addEventListener("click", () => {
+      projetosSlider.scrollTo({
+        left: projetoCards[index].offsetLeft,
+        behavior: "smooth",
+      });
+    });
+
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll(".slider-dots span");
+
+  /* ATUALIZA BOLINHA ATIVA */
+
+  projetosSlider.addEventListener("scroll", () => {
+    let current = 0;
+
+    projetoCards.forEach((card, index) => {
+      const rect = card.getBoundingClientRect();
+
+      if (rect.left >= -rect.width / 2 && rect.left < window.innerWidth / 2) {
+        current = index;
+      }
+    });
+
+    dots.forEach((dot) => dot.classList.remove("active"));
+
+    if (dots[current]) {
+      dots[current].classList.add("active");
+    }
+  });
+
+  /* BOTÃO PRÓXIMO */
+
+  const nextBtn = document.querySelector(".next");
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      const cardWidth = projetoCards[0].offsetWidth + 16;
+
+      projetosSlider.scrollBy({
+        left: cardWidth,
+        behavior: "smooth",
+      });
+    });
+  }
+
+  /* BOTÃO ANTERIOR */
+
+  const prevBtn = document.querySelector(".prev");
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      const cardWidth = projetoCards[0].offsetWidth + 16;
+
+      projetosSlider.scrollBy({
+        left: -cardWidth,
+        behavior: "smooth",
+      });
+    });
+  }
+});
