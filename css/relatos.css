@@ -244,21 +244,28 @@
   }
 
   .relato-btn {
-    width: 42px;
-    height: 42px;
-    font-size: 0.9rem;
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 30px;
   }
 
-  .prev {
-    left: 10px;
-  }
-
+  .prev,
   .next {
-    right: 10px;
+    top: auto;
+    left: auto;
+    right: auto;
   }
 
   .relato-dots {
     margin-top: 25px;
+  }
+
+  .relatos-slider {
+    text-align: center;
   }
 }
 
