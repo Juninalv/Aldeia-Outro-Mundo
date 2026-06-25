@@ -1,0 +1,30 @@
+/* ==========================
+   MANIFESTO FINAL
+========================== */
+
+.manifesto-final {
+  padding: 160px 0;
+  background: var(--verde-escuro);
+
+  text-align: center;
+}
+
+.manifesto-subtitulo {
+  color: var(--verde-claro);
+
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  margin-bottom: 30px;
+}
+
+.manifesto-final h2 {
+  color: var(--bege);
+
+  font-size: clamp(3rem, 7vw, 7rem);
+
+  line-height: 1.1;
+
+  max-width: 1000px;
+  margin: 0 auto;
+}

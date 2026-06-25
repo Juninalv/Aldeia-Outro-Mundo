@@ -1,0 +1,65 @@
+/* ==========================
+   FOOTER
+========================== */
+
+.footer {
+  background: #0b0b0b;
+  padding: 90px 0 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+
+  margin-bottom: 60px;
+}
+
+.footer-brand img {
+  max-width: 180px;
+  margin-bottom: 20px;
+}
+
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+}
+
+.footer-column h4 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-column a {
+  color: rgba(255, 255, 255, 0.65);
+
+  text-decoration: none;
+
+  margin-bottom: 12px;
+
+  transition: 0.3s;
+}
+
+.footer-column a:hover {
+  color: var(--verde-claro);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  padding-top: 25px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+}

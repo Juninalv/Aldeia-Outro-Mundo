@@ -221,3 +221,69 @@ if (imagens.length) {
     }, 500);
   }, 3000);
 }
+/* RELATOS */
+
+const slides = document.querySelectorAll(".relato-slide");
+const dots = document.querySelectorAll(".dot");
+
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
+if (slides.length && prevBtn && nextBtn) {
+  let current = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide) => {
+      slide.classList.remove("active");
+    });
+
+    dots.forEach((dot) => {
+      dot.classList.remove("active");
+    });
+
+    slides[index].classList.add("active");
+
+    if (dots[index]) {
+      dots[index].classList.add("active");
+    }
+  }
+
+  nextBtn.addEventListener("click", () => {
+    current++;
+
+    if (current >= slides.length) {
+      current = 0;
+    }
+
+    showSlide(current);
+  });
+
+  prevBtn.addEventListener("click", () => {
+    current--;
+
+    if (current < 0) {
+      current = slides.length - 1;
+    }
+
+    showSlide(current);
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      current = index;
+      showSlide(current);
+    });
+  });
+
+  /* AUTO PLAY */
+
+  setInterval(() => {
+    current++;
+
+    if (current >= slides.length) {
+      current = 0;
+    }
+
+    showSlide(current);
+  }, 7000);
+}
