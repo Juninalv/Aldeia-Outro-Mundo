@@ -1,0 +1,141 @@
+/* ==========================
+   EFEITOS E CONEXÕES
+========================== */
+
+.conexoes {
+  padding: 120px 0;
+  background: var(--verde-escuro);
+}
+
+.conexoes-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+
+  margin-bottom: 70px;
+}
+
+.conexoes-title span {
+  color: var(--verde-claro);
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+.conexoes-title h2 {
+  color: var(--bege);
+
+  margin-top: 16px;
+
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.1;
+}
+
+.conexoes-text p {
+  color: rgba(255, 255, 255, 0.85);
+
+  line-height: 1.9;
+}
+
+/* LISTA */
+
+.conexoes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.conexao-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+
+  gap: 30px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 24px;
+
+  padding: 35px;
+
+  transition: 0.3s ease;
+}
+
+.conexao-item:hover {
+  transform: translateX(8px);
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.conexao-number {
+  color: var(--verde-claro);
+
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.conexao-content h3 {
+  color: var(--bege);
+
+  margin-bottom: 12px;
+
+  font-size: 1.4rem;
+}
+
+.conexao-content p {
+  color: rgba(255, 255, 255, 0.8);
+
+  line-height: 1.8;
+}
+
+.conexao-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 24px;
+  padding: 12px 24px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  color: var(--bege);
+  text-decoration: none;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  transition: all 0.3s ease;
+}
+
+.conexao-btn:hover {
+  background: var(--verde-claro);
+  border-color: var(--verde-claro);
+
+  color: var(--verde-escuro);
+
+  transform: translateY(-2px);
+}
+@media (max-width: 900px) {
+  .conexoes {
+    padding: 80px 0;
+  }
+
+  .conexoes-header {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .conexao-item {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .conexao-number {
+    font-size: 1.5rem;
+  }
+}
