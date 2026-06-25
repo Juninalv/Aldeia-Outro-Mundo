@@ -75,7 +75,15 @@
 .hosp-card:hover img {
   transform: scale(1.08);
 }
-@media (max-width: 900px) {
+/* ==========================
+   TABLET
+========================== */
+
+@media (max-width: 1024px) {
+  .hospedagem-opcoes {
+    padding: 90px 0;
+  }
+
   .hospedagem-grid {
     grid-template-columns: 1fr;
     gap: 50px;
@@ -83,11 +91,90 @@
 
   .hospedagem-info {
     text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .hospedagem-info h2 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+  }
+
+  .hospedagem-cards {
+    max-width: 750px;
+    width: 100%;
+    margin: 0 auto;
+    gap: 18px;
+  }
+
+  .hosp-card {
+    border-radius: 18px;
   }
 }
 
-@media (max-width: 600px) {
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+  .hospedagem-opcoes {
+    padding: 70px 20px;
+  }
+
+  .hospedagem-grid {
+    gap: 35px;
+  }
+
+  .hospedagem-info span {
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+  }
+
+  .hospedagem-info h2 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin: 15px 0;
+  }
+
+  .hospedagem-info p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
   .hospedagem-cards {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .hosp-card {
+    aspect-ratio: 16 / 10;
+    border-radius: 16px;
+  }
+
+  .hosp-card span {
+    left: 16px;
+    bottom: 16px;
+    font-size: 0.95rem;
+  }
+}
+
+/* ==========================
+   MOBILE PEQUENO
+========================== */
+
+@media (max-width: 480px) {
+  .hospedagem-opcoes {
+    padding: 60px 16px;
+  }
+
+  .hospedagem-info h2 {
+    font-size: 1.9rem;
+  }
+
+  .hosp-card {
+    aspect-ratio: 16 / 11;
+  }
+
+  .hosp-card span {
+    font-size: 0.9rem;
   }
 }

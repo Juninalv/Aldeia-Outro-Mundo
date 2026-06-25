@@ -143,22 +143,151 @@
   transform: translateY(-3px);
 }
 
-/* MOBILE */
+/* ==========================
+   TABLET
+========================== */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .galeria-home {
-    min-height: 80vh;
+    min-height: 90vh;
   }
 
   .galeria-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .galeria-content {
+    max-width: 700px;
   }
 
   .galeria-content h2 {
-    font-size: 3rem;
+    font-size: clamp(2.8rem, 7vw, 4.5rem);
   }
 
   .galeria-content p {
     font-size: 1rem;
+  }
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+  .galeria-home {
+    min-height: 85vh;
+  }
+
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 5px;
+    padding: 5px;
+  }
+
+  .galeria-grid img:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .galeria-grid img:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .galeria-grid img:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .galeria-grid img:nth-child(4) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .galeria-grid img:nth-child(5) {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .galeria-grid img:nth-child(6) {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .galeria-grid img:nth-child(7) {
+    grid-column: 2;
+    grid-row: 4;
+  }
+
+  .galeria-grid img:nth-child(8) {
+    grid-column: 1;
+    grid-row: 5;
+  }
+
+  .galeria-grid img:nth-child(9) {
+    grid-column: 2;
+    grid-row: 5;
+  }
+
+  .galeria-grid img {
+    border-radius: 12px;
+  }
+
+  .galeria-overlay {
+    background: rgba(0, 0, 0, 0.55);
+  }
+
+  .galeria-content {
+    padding: 0 20px;
+  }
+
+  .galeria-content span {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+  }
+
+  .galeria-content h2 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+
+  .galeria-content p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+  }
+
+  .btn-galeria {
+    width: 100%;
+    max-width: 260px;
+    padding: 14px 25px;
+  }
+}
+
+/* ==========================
+   MOBILE PEQUENO
+========================== */
+
+@media (max-width: 480px) {
+  .galeria-home {
+    min-height: 80vh;
+  }
+
+  .galeria-content h2 {
+    font-size: 2rem;
+  }
+
+  .galeria-content p {
+    font-size: 0.9rem;
+  }
+
+  .btn-galeria {
+    max-width: 230px;
   }
 }

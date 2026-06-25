@@ -120,27 +120,83 @@
 .proposito-images img {
   transition: opacity 0.5s ease;
 }
-/* RESPONSIVO */
 
-@media (max-width: 992px) {
+/* ==========================
+   TABLET
+========================== */
+
+@media (max-width: 1024px) {
   .proposito-top {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 50px;
+    margin-bottom: 70px;
+  }
+
+  .proposito-text {
+    text-align: center;
+  }
+
+  .proposito-text p {
+    margin: 0 auto;
+  }
+
+  .proposito-images {
+    max-width: 700px;
+    margin: 0 auto;
   }
 
   .pilares {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .pilar h3 {
+    font-size: 1.6rem;
+  }
+
+  .pilar-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .pilar-icon i {
+    font-size: 2rem;
+  }
+
+  .pilares::before {
+    left: 10%;
+    width: 80%;
   }
 }
 
+/* ==========================
+   MOBILE
+========================== */
+
 @media (max-width: 768px) {
+  .proposito-top {
+    gap: 35px;
+    margin-bottom: 60px;
+  }
+
+  .proposito-text {
+    text-align: center;
+  }
+
   .proposito-text h2 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+
+  .proposito-text p {
+    font-size: 1rem;
+    line-height: 1.8;
   }
 
   .proposito-images {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .img-3 {
@@ -152,5 +208,65 @@
   .img-3 {
     aspect-ratio: 16 / 9;
     height: auto;
+  }
+
+  .proposito-images img {
+    border-radius: 14px;
+  }
+
+  .pilares {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .pilares::before {
+    display: none;
+  }
+
+  .pilar h3 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+
+  .pilar p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .pilar-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 18px;
+  }
+
+  .pilar-icon i {
+    font-size: 1.8rem;
+  }
+}
+
+/* ==========================
+   MOBILE PEQUENO
+========================== */
+
+@media (max-width: 480px) {
+  .proposito-text h2 {
+    font-size: 1.9rem;
+  }
+
+  .proposito-text p {
+    font-size: 0.95rem;
+  }
+
+  .pilar h3 {
+    font-size: 1.4rem;
+  }
+
+  .pilar-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .pilar-icon i {
+    font-size: 1.5rem;
   }
 }

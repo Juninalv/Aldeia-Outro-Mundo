@@ -154,32 +154,151 @@
   background: var(--verde-claro);
 }
 
-/* RESPONSIVO */
+/* ==========================
+   TABLET
+========================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .relatos {
-    padding: 80px 0;
+    padding: 90px 0;
   }
 
+  .relatos-header {
+    margin-bottom: 50px;
+  }
+
+  .relato-slide,
   .relato-card {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 35px;
   }
 
   .relato-content {
-    padding: 35px;
+    padding: 40px;
   }
 
   .relato-image img {
-    height: 350px;
+    height: 420px;
+  }
+
+  .prev {
+    left: 15px;
+  }
+
+  .next {
+    right: 15px;
+  }
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+  .relatos {
+    padding: 70px 0;
+  }
+
+  .relatos-header {
+    margin-bottom: 40px;
+  }
+
+  .relatos-header span {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+
+  .relatos-header h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .relato-slide,
+  .relato-card {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .relato-content {
+    padding: 28px;
+    border-radius: 18px;
   }
 
   .aspas {
-    font-size: 4rem;
+    font-size: 3rem;
+    margin-bottom: 15px;
   }
 
   .relato-content p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.8;
+    margin-bottom: 25px;
+  }
+
+  .relato-image {
+    border-radius: 18px;
+  }
+
+  .relato-image img {
+    height: 280px;
+  }
+
+  .relato-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 0.9rem;
+  }
+
+  .prev {
+    left: 10px;
+  }
+
+  .next {
+    right: 10px;
+  }
+
+  .relato-dots {
+    margin-top: 25px;
+  }
+}
+
+/* ==========================
+   MOBILE PEQUENO
+========================== */
+
+@media (max-width: 480px) {
+  .relatos {
+    padding: 60px 0;
+  }
+
+  .relatos-header h2 {
+    font-size: 1.7rem;
+  }
+
+  .relato-content {
+    padding: 22px;
+  }
+
+  .aspas {
+    font-size: 2.5rem;
+  }
+
+  .relato-content p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .relato-image img {
+    height: 220px;
+  }
+
+  .relato-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
   }
 }

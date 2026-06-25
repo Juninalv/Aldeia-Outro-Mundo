@@ -69,22 +69,121 @@
   line-height: 1.8;
 }
 
-@media (max-width: 900px) {
+/* ==========================
+   TABLET
+========================== */
+
+@media (max-width: 1024px) {
   .conexoes {
-    padding: 80px 0;
+    padding: 90px 0;
   }
 
   .conexoes-header {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 35px;
+    margin-bottom: 50px;
+  }
+
+  .conexoes-title {
+    text-align: center;
+  }
+
+  .conexoes-text {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .conexao-item {
+    grid-template-columns: 70px 1fr;
+    gap: 20px;
+    padding: 30px;
+    border-radius: 20px;
+  }
+
+  .conexao-content h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+  .conexoes {
+    padding: 70px 0;
+  }
+
+  .conexoes-header {
+    gap: 25px;
+    margin-bottom: 40px;
+  }
+
+  .conexoes-title span {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+  }
+
+  .conexoes-title h2 {
+    font-size: 2.2rem;
+    margin-top: 12px;
+  }
+
+  .conexoes-text p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .conexoes-list {
+    gap: 16px;
   }
 
   .conexao-item {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 12px;
+    padding: 24px;
+    border-radius: 18px;
+    text-align: center;
   }
 
   .conexao-number {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  .conexao-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .conexao-content p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .conexao-item:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* ==========================
+   MOBILE PEQUENO
+========================== */
+
+@media (max-width: 480px) {
+  .conexoes {
+    padding: 60px 0;
+  }
+
+  .conexao-item {
+    padding: 20px;
+  }
+
+  .conexoes-title h2 {
+    font-size: 1.9rem;
+  }
+
+  .conexao-content h3 {
+    font-size: 1.1rem;
   }
 }

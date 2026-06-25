@@ -72,31 +72,96 @@
   color: var(--verde-escuro);
 }
 
-/* RESPONSIVO */
+/* ==========================
+   TABLET
+========================== */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .vivencias {
-    min-height: 500px;
+    min-height: 550px;
 
     background-image:
       linear-gradient(
-        180deg,
+        90deg,
         rgba(16, 31, 20, 0.92) 0%,
-        rgba(16, 31, 20, 0.82) 100%
+        rgba(16, 31, 20, 0.75) 55%,
+        rgba(16, 31, 20, 0.35) 100%
       ),
       url("../img/reveilloz.jpg");
   }
 
   .vivencias-content {
-    text-align: center;
-    margin: 0 auto;
+    max-width: 500px;
   }
 
   .vivencias-content h2 {
-    font-size: 2.4rem;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
   }
 
   .vivencias-content p {
     font-size: 1rem;
+  }
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+  .vivencias {
+    min-height: 520px;
+    background-position: center;
+  }
+
+  .vivencias .container {
+    padding: 0 20px;
+  }
+
+  .vivencias-content {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .vivencias-content .tag {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+  }
+
+  .vivencias-content h2 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+
+  .vivencias-content p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+  }
+
+  .btn-vivencias {
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
+    padding: 14px 20px;
+  }
+}
+
+/* ==========================
+   MOBILE PEQUENO
+========================== */
+
+@media (max-width: 480px) {
+  .vivencias {
+    min-height: 480px;
+  }
+
+  .vivencias-content h2 {
+    font-size: 2rem;
+  }
+
+  .vivencias-content p {
+    font-size: 0.9rem;
   }
 }

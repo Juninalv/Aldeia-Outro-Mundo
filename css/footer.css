@@ -49,3 +49,93 @@
   color: var(--bege);
   font-size: 0.9rem;
 }
+
+/* ==========================
+   TABLET
+========================== */
+
+@media (max-width: 1024px) {
+  .footer {
+    padding: 80px 0 30px;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+    max-width: 500px;
+  }
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 70px 0 25px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    text-align: center;
+  }
+
+  .footer-brand {
+    max-width: 100%;
+  }
+
+  .footer-brand img {
+    max-width: 150px;
+    margin: 0 auto 20px;
+  }
+
+  .footer-brand p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .footer-column {
+    align-items: center;
+  }
+
+  .footer-column h4 {
+    margin-bottom: 15px;
+  }
+
+  .footer-column a {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+  }
+
+  .footer-bottom {
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: 0.8rem;
+  }
+}
+
+/* ==========================
+   MOBILE PEQUENO
+========================== */
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 60px 0 20px;
+  }
+
+  .footer-grid {
+    gap: 28px;
+  }
+
+  .footer-brand img {
+    max-width: 130px;
+  }
+}

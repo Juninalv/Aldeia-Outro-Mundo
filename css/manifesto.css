@@ -22,3 +22,66 @@
   max-width: 1000px;
   margin: 0 auto;
 }
+
+/* ==========================
+   TABLET
+========================== */
+
+@media (max-width: 1024px) {
+  .manifesto-final {
+    padding: 80px 5%;
+  }
+
+  .manifesto-subtitulo {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+  }
+
+  .manifesto-final h2 {
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    max-width: 850px;
+  }
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+  .manifesto-final {
+    padding: 70px 20px;
+  }
+
+  .manifesto-subtitulo {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .manifesto-final h2 {
+    font-size: clamp(2rem, 10vw, 3.2rem);
+    line-height: 1.15;
+    max-width: 100%;
+  }
+}
+
+/* ==========================
+   MOBILE PEQUENO
+========================== */
+
+@media (max-width: 480px) {
+  .manifesto-final {
+    padding: 60px 16px;
+  }
+
+  .manifesto-subtitulo {
+    font-size: 0.7rem;
+  }
+
+  .manifesto-final h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+}

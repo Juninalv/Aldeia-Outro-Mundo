@@ -164,6 +164,41 @@
 }
 
 /* ===================================
+   TABLET
+=================================== */
+
+@media (max-width: 1024px) {
+  .projetos {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    padding: 80px 5%;
+  }
+
+  .projetos-info {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .projetos-info h2 {
+    font-size: 2.5rem;
+  }
+
+  .projetos-info p {
+    max-width: 650px;
+    margin: 0 auto 30px;
+  }
+
+  .projetos-grid {
+    gap: 20px;
+  }
+
+  .projeto-card {
+    flex: 0 0 60%;
+  }
+}
+
+/* ===================================
    MOBILE
 =================================== */
 
@@ -182,10 +217,12 @@
 
   .projetos-info h2 {
     font-size: 2rem;
+    line-height: 1.2;
   }
 
   .projetos-info p {
     font-size: 0.95rem;
+    line-height: 1.8;
   }
 
   .btn-principal {
@@ -200,10 +237,12 @@
 
   .projetos-grid {
     gap: 16px;
+    padding-bottom: 10px;
   }
 
   .projeto-card {
     flex: 0 0 85%;
+    border-radius: 16px;
   }
 
   .projeto-imagem {
@@ -220,6 +259,40 @@
 
   .projeto-info-card p {
     font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: 1.7;
+  }
+}
+
+/* ===================================
+   MOBILE PEQUENO
+=================================== */
+
+@media (max-width: 480px) {
+  .projetos {
+    padding: 60px 16px;
+  }
+
+  .projetos-info h2 {
+    font-size: 1.8rem;
+  }
+
+  .projeto-card {
+    flex: 0 0 92%;
+  }
+
+  .projeto-imagem {
+    height: 190px;
+  }
+
+  .projeto-info-card {
+    padding: 18px;
+  }
+
+  .projeto-info-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .projeto-info-card p {
+    font-size: 0.9rem;
   }
 }

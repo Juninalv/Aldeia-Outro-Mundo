@@ -80,30 +80,119 @@
 .btn-outline:hover {
   background: rgba(255, 255, 255, 0.1);
 }
-@media (max-width: 992px) {
-  .nav {
-    display: none;
+/* ==========================
+   TABLET
+========================== */
+
+@media (max-width: 1024px) {
+  .hero {
+    min-height: 90vh;
+    background-position: center;
   }
 
-  .btn-header {
-    display: none;
+  .hero-content {
+    max-width: 600px;
   }
 
   .hero h1 {
-    font-size: 3.5rem;
+    font-size: 3.3rem;
+    line-height: 1.05;
   }
-}
 
-@media (max-width: 768px) {
-  .hero {
-    text-align: center;
+  .hero p {
+    font-size: 1rem;
   }
 
   .hero-buttons {
-    flex-direction: column;
+    gap: 14px;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    padding: 14px 26px;
+  }
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 90svh;
+    justify-content: center;
+    background-position: 60% center;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(10, 20, 12, 0.75),
+      rgba(10, 20, 12, 0.85)
+    );
+  }
+
+  .hero .container {
+    padding: 0 20px;
   }
 
   .hero-content {
     max-width: 100%;
+  }
+
+  .hero-tag {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    padding: 14px 20px;
+  }
+}
+
+/* ==========================
+   MOBILE PEQUENO
+========================== */
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 100svh;
+    background-position: 65% center;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .hero-tag {
+    font-size: 0.7rem;
   }
 }
