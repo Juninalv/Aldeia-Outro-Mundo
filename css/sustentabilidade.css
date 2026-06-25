@@ -13,7 +13,7 @@
 
 .sustentabilidade .section-header h2 {
   font-size: clamp(2rem, 4vw, 3.5rem);
-  color: var(--verde-escuro);
+  color: var(--verde-claro);
   margin-bottom: 12px;
 }
 

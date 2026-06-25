@@ -11,7 +11,6 @@
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 60px;
-
   margin-bottom: 60px;
 }
 
@@ -21,12 +20,12 @@
 }
 
 .footer-brand p {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--bege);
   line-height: 1.8;
 }
 
 .footer-column h4 {
-  color: white;
+  color: var(--bege);
   margin-bottom: 20px;
 }
 
@@ -36,12 +35,9 @@
 }
 
 .footer-column a {
-  color: rgba(255, 255, 255, 0.65);
-
+  color: var(--bege);
   text-decoration: none;
-
   margin-bottom: 12px;
-
   transition: 0.3s;
 }
 
@@ -49,17 +45,7 @@
   color: var(--verde-claro);
 }
 
-.footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-
-  padding-top: 25px;
-
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-}
-
 .footer-bottom p {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--bege);
   font-size: 0.9rem;
 }

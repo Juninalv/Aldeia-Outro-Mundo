@@ -31,7 +31,6 @@
 
 .vivencias-content {
   max-width: 550px;
-  color: var(--bege);
 }
 
 .vivencias-content .tag {
@@ -40,13 +39,14 @@
   font-size: 0.9rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--verde-claro);
+  color: var(--amarelo-claro);
 }
 
 .vivencias-content h2 {
   font-size: clamp(2.5rem, 5vw, 4rem);
   line-height: 1.1;
   margin-bottom: 24px;
+  color: var(--bege);
 }
 
 .vivencias-content p {
@@ -54,24 +54,22 @@
   line-height: 1.8;
   opacity: 0.95;
   margin-bottom: 32px;
+  color: var(--cinza-claro);
 }
 
 .btn-vivencias {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   padding: 14px 28px;
-  background: var(--verde-claro);
-  color: var(--verde-escuro);
-  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  color: var(--branco);
   text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
 .btn-vivencias:hover {
-  transform: translateY(-3px);
-  opacity: 0.9;
+  background: var(--branco);
+  color: var(--verde-escuro);
 }
 
 /* RESPONSIVO */

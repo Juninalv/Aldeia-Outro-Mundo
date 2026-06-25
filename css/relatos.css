@@ -14,19 +14,15 @@
 
 .relatos-header span {
   display: inline-block;
-
   color: var(--verde-claro);
-
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 0.9rem;
-
   margin-bottom: 12px;
 }
 
 .relatos-header h2 {
   color: var(--verde-escuro);
-
   font-size: clamp(2.5rem, 4vw, 4rem);
   line-height: 1.1;
 }
@@ -37,9 +33,7 @@
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 50px;
-
   align-items: center;
-
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -47,30 +41,23 @@
 /* TEXTO */
 
 .relato-content {
-  background: rgba(255, 255, 255, 0.7);
-
+  background: var(--branco);
   padding: 50px;
-
   border-radius: 24px;
-
   backdrop-filter: blur(10px);
 }
 
 .aspas {
   font-size: 5rem;
   line-height: 1;
-
   color: var(--verde-claro);
-
   margin-bottom: 20px;
 }
 
 .relato-content p {
-  color: var(--texto);
-
+  color: var(--cinza-escuro);
   font-size: 1.1rem;
   line-height: 2;
-
   margin-bottom: 35px;
 }
 
@@ -86,11 +73,6 @@
   color: var(--verde-escuro);
 }
 
-.relato-autor span {
-  color: #777;
-  font-size: 0.9rem;
-}
-
 /* FOTO */
 
 .relato-image {
@@ -101,11 +83,8 @@
 .relato-image img {
   width: 100%;
   height: 500px;
-
   object-fit: cover;
-
   display: block;
-
   transition: transform 0.6s ease;
 }
 
@@ -119,10 +98,8 @@
 
 .relato-slide {
   display: none;
-
   grid-template-columns: 1.2fr 0.8fr;
   gap: 50px;
-
   align-items: center;
 }
 
@@ -133,22 +110,15 @@
 .relato-btn {
   position: absolute;
   top: 50%;
-
   transform: translateY(-50%);
-
   width: 48px;
   height: 48px;
-
   border: none;
   border-radius: 50%;
-
-  background: white;
-  color: var(--verde-escuro);
-
+  background: var(--verde-escuro);
+  color: var(--bege);
   cursor: pointer;
-
   z-index: 10;
-
   transition: 0.3s;
 }
 
@@ -168,20 +138,15 @@
   display: flex;
   justify-content: center;
   gap: 10px;
-
   margin-top: 30px;
 }
 
 .dot {
   width: 10px;
   height: 10px;
-
   border-radius: 50%;
-
-  background: rgba(0, 0, 0, 0.2);
-
+  background: var(--bege);
   cursor: pointer;
-
   transition: 0.3s;
 }
 
