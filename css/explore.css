@@ -1,0 +1,151 @@
+/* ==========================
+   EXPLORE A ALDEIA
+========================== */
+
+.explore-aldeia {
+  padding: 120px 0;
+  background: var(--bege);
+}
+
+.explore-header {
+  max-width: 700px;
+  margin-bottom: 60px;
+}
+
+.explore-header span {
+  display: inline-block;
+  margin-bottom: 12px;
+
+  color: var(--verde-claro);
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.explore-header h2 {
+  color: var(--verde-escuro);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.explore-header p {
+  color: var(--texto);
+  line-height: 1.8;
+}
+
+/* GRID */
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+/* CARD */
+
+.explore-card {
+  text-decoration: none;
+  color: inherit;
+
+  border-radius: 20px;
+  overflow: hidden;
+
+  transition: transform 0.3s ease;
+}
+
+.explore-card:hover {
+  transform: translateY(-6px);
+}
+
+/* IMAGEM */
+
+.explore-card img {
+  width: 100%;
+  height: 260px;
+
+  object-fit: cover;
+  display: block;
+
+  transition: transform 0.5s ease;
+}
+
+.explore-card:hover img {
+  transform: scale(1.05);
+}
+
+/* INFORMAÇÕES */
+
+.card-info {
+  background: #111;
+  padding: 18px;
+  min-height: 120px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.card-info h3 {
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.card-info p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* BOTÃO */
+
+.explore-footer {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.btn-explore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 30px;
+
+  background: var(--verde-escuro);
+  color: white;
+
+  text-decoration: none;
+  border-radius: 999px;
+
+  transition: 0.3s ease;
+}
+
+.btn-explore:hover {
+  transform: translateY(-3px);
+}
+
+/* TABLET */
+
+@media (max-width: 1200px) {
+  .explore-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .explore-aldeia {
+    padding: 80px 0;
+  }
+
+  .explore-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .explore-card img {
+    height: 240px;
+  }
+}
