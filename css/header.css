@@ -1,10 +1,11 @@
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 25px 0;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
 }
 
 .header .container {
@@ -28,6 +29,44 @@
   font-size: 0.95rem;
   font-weight: 500;
   position: relative;
+}
+
+.btn-header {
+  padding: 14px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50px;
+  color: var(--bege);
+}
+
+/* hamburguer */
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background: var(--branco);
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 
 .nav a::after {
@@ -90,7 +129,7 @@
 
 @media (max-width: 768px) {
   .header {
-    padding: 18px 0;
+    padding: 15px 0;
   }
 
   .header .container {
@@ -98,19 +137,45 @@
   }
 
   .logo img {
-    height: 55px;
+    height: 50px;
   }
 
-  /* caso use menu hamburguer futuramente */
+  .menu-toggle {
+    display: flex;
+  }
+
   .nav {
-    display: none;
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+
+    background: var(--verde-escuro);
+
+    padding: 30px 0;
+
+    transform: translateY(-150%);
+    opacity: 0;
+
+    transition: 0.35s ease;
+  }
+
+  .nav.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 25px;
   }
 
   .btn-header {
     display: none;
   }
 }
-
 /* ==========================
    MOBILE PEQUENO
 ========================== */
