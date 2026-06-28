@@ -1,0 +1,199 @@
+/* ==========================
+   CONTATO
+========================== */
+
+.contato {
+  padding: 120px 0;
+  background: var(--bege);
+}
+
+.contato .section-header {
+  max-width: 700px;
+  margin-bottom: 60px;
+}
+
+.contato .section-header span {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--verde-claro);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.contato .section-header h2 {
+  color: var(--verde-claro);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.contato .section-header p {
+  color: var(--cinza-escuro);
+  line-height: 1.8;
+}
+
+.contato-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.contato-card {
+  text-decoration: none;
+  color: inherit;
+  background: var(--branco);
+  border-radius: 20px;
+  padding: 32px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.contato-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--verde-claro);
+}
+
+.contato-icon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  border-radius: 50%;
+  background: var(--verde-escuro);
+  color: var(--bege);
+  font-size: 2rem;
+}
+
+.contato-card h3 {
+  color: var(--verde-escuro);
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.contato-card p {
+  color: var(--cinza-escuro);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.contato-card span {
+  display: inline-block;
+
+  color: var(--verde-claro);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* ==========================
+   TABLET
+========================== */
+
+@media (max-width: 1024px) {
+  .contato {
+    padding: 90px 0;
+  }
+
+  .contato .section-header {
+    margin-bottom: 45px;
+    max-width: 650px;
+  }
+
+  .contato-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .contato-card {
+    padding: 28px;
+  }
+
+  .contato-card h3 {
+    font-size: 1.15rem;
+  }
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+  .contato {
+    padding: 70px 0;
+  }
+
+  .contato .section-header {
+    margin-bottom: 35px;
+  }
+
+  .contato .section-header span {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+  }
+
+  .contato .section-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .contato .section-header p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .contato-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .contato-card {
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .contato-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+  }
+
+  .contato-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .contato-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ==========================
+   MOBILE PEQUENO
+========================== */
+
+@media (max-width: 480px) {
+  .contato {
+    padding: 60px 0;
+  }
+
+  .contato .section-header h2 {
+    font-size: 1.9rem;
+  }
+
+  .contato-card {
+    padding: 20px;
+  }
+
+  .contato-card p {
+    font-size: 0.85rem;
+  }
+
+  .contato-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 1.4rem;
+  }
+}

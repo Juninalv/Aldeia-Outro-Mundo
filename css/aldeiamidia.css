@@ -20,23 +20,16 @@
 .midia-content {
   position: relative;
   z-index: 2;
-
   max-width: 650px;
-
-  color: white;
+  color: var(--bege);
 }
 
 .midia-content span {
   display: inline-block;
-
   margin-bottom: 20px;
-
-  color: #d9c39b;
-
+  color: var(--amarelo-claro);
   text-transform: uppercase;
-
   letter-spacing: 2px;
-
   font-size: 0.9rem;
 }
 

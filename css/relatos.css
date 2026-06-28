@@ -22,7 +22,7 @@
 }
 
 .relatos-header h2 {
-  color: var(--verde-escuro);
+  color: var(--verde-claro);
   font-size: clamp(2.5rem, 4vw, 4rem);
   line-height: 1.1;
 }
