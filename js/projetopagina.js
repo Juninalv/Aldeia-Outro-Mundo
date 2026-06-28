@@ -166,22 +166,22 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-const buttons = document.querySelectorAll(".project-toggle");
+/*=========================================================
+    LER MAIS DOS PROJETOS
+=========================================================*/
 
-buttons.forEach((button) => {
+const projectToggles = document.querySelectorAll(".project-toggle");
+
+projectToggles.forEach((button) => {
   button.addEventListener("click", () => {
-    const section = button.closest(".project-section");
+    const projectExtra = button.nextElementSibling;
 
-    const extras = section.querySelectorAll(".project-extra");
+    projectExtra.classList.toggle("active");
 
-    extras.forEach((extra) => {
-      extra.classList.toggle("active");
-    });
-
-    button.classList.toggle("active");
-
-    button.innerHTML = button.classList.contains("active")
-      ? 'Mostrar menos <i class="fa-solid fa-chevron-up"></i>'
-      : 'Ler mais <i class="fa-solid fa-chevron-down"></i>';
+    if (projectExtra.classList.contains("active")) {
+      button.textContent = "Mostrar menos";
+    } else {
+      button.textContent = "Ler mais";
+    }
   });
 });
