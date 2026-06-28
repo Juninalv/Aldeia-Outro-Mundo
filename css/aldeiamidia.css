@@ -1,0 +1,57 @@
+.midia {
+  position: relative;
+  min-height: 70vh;
+
+  display: flex;
+  align-items: center;
+
+  background: url("../img/aldeia-aerea.jpg") center center/cover no-repeat;
+
+  overflow: hidden;
+}
+
+.midia-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55));
+}
+
+.midia-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 650px;
+
+  color: white;
+}
+
+.midia-content span {
+  display: inline-block;
+
+  margin-bottom: 20px;
+
+  color: #d9c39b;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+
+  font-size: 0.9rem;
+}
+
+.midia-content h2 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+  margin-bottom: 20px;
+}
+
+.midia-content p {
+  font-size: 1.1rem;
+
+  line-height: 1.8;
+
+  margin-bottom: 35px;
+
+  opacity: 0.95;
+}

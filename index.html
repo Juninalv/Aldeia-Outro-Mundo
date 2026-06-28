@@ -52,7 +52,7 @@
         </button>
       </div>
     </header>
-    <main>
+    <main id="main-content">
       <section class="hero">
         <div class="hero-overlay"></div>
 
@@ -779,7 +779,14 @@
               pessoas, natureza e conhecimento.
             </p>
 
-            <a href="#experiencias" class="btn-principal">
+            <a
+              class="btn-principal"
+              href="#"
+              onclick="
+                carregarPagina('pages/vivencias.html');
+                return false;
+              "
+            >
               Explorar experiências
             </a>
           </div>
@@ -1112,6 +1119,25 @@
           <h2>Ainda bem que a gente tem a gente.</h2>
         </div>
       </section>
+      <section class="midia reveal">
+        <div class="midia-overlay"></div>
+
+        <div class="container">
+          <div class="midia-content">
+            <span>Reportagens • Entrevistas • Documentários</span>
+
+            <h2>A Aldeia Outro Mundo na Mídia</h2>
+
+            <p>
+              Descubra como a Aldeia tem inspirado pessoas através de
+              reportagens, entrevistas e conteúdos publicados em diferentes
+              veículos de comunicação.
+            </p>
+
+            <a href="midia.html" class="btn-principal"> Ver Reportagens </a>
+          </div>
+        </div>
+      </section>
     </main>
     <footer class="footer">
       <div class="container">
@@ -1180,6 +1206,7 @@
         </div>
       </div>
     </div>
+    <script src="./js/router.js"></script>
     <script src="./js/animations.js"></script>
   </body>
 </html>
