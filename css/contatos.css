@@ -36,7 +36,7 @@
 
 .contato-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
 
@@ -63,7 +63,7 @@
   justify-content: center;
   margin-bottom: 24px;
   border-radius: 50%;
-  background: var(--verde-escuro);
+  background: var(--verde-claro);
   color: var(--bege);
   font-size: 2rem;
 }
@@ -83,7 +83,6 @@
 
 .contato-card span {
   display: inline-block;
-
   color: var(--verde-claro);
   font-weight: 700;
   font-size: 1rem;
