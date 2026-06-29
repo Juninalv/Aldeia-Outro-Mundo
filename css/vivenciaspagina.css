@@ -178,7 +178,7 @@
 }
 
 .texto-expandido.active {
-  max-height: 800px;
+  max-height: 2000px;
   opacity: 1;
 }
 
