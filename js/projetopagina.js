@@ -71,32 +71,50 @@ counters.forEach((counter) => {
     LIGHTBOX
 =========================================================*/
 
-const images = document.querySelectorAll(".project-gallery img");
+const galleryItems = document.querySelectorAll(
+  ".project-gallery img, .project-gallery video",
+);
 
 const lightbox = document.createElement("div");
 
 lightbox.classList.add("lightbox");
 
 lightbox.innerHTML = `
-    <span class="close-lightbox">&times;</span>
-    <img src="">
+  <span class="close-lightbox">&times;</span>
+  <div class="lightbox-content"></div>
 `;
 
 document.body.appendChild(lightbox);
 
-const lightboxImg = lightbox.querySelector("img");
+const lightboxContent = lightbox.querySelector(".lightbox-content");
 
-images.forEach((image) => {
-  image.addEventListener("click", () => {
+galleryItems.forEach((item) => {
+  item.addEventListener("click", () => {
     lightbox.classList.add("show");
 
-    lightboxImg.src = image.src;
+    lightboxContent.innerHTML = "";
+
+    if (item.tagName === "IMG") {
+      const img = document.createElement("img");
+      img.src = item.src;
+      lightboxContent.appendChild(img);
+    } else if (item.tagName === "VIDEO") {
+      const video = document.createElement("video");
+
+      video.src = item.currentSrc || item.src;
+      video.controls = true;
+      video.autoplay = true;
+      video.loop = true;
+
+      lightboxContent.appendChild(video);
+    }
   });
 });
 
 lightbox.addEventListener("click", (e) => {
   if (e.target === lightbox || e.target.classList.contains("close-lightbox")) {
     lightbox.classList.remove("show");
+    lightboxContent.innerHTML = "";
   }
 });
 
