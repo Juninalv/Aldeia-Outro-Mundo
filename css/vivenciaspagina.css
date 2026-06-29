@@ -319,6 +319,52 @@
 
   color: var(--bege);
 }
+/*=========================================================
+    LIGHTBOX
+=========================================================*/
+
+.vivencias-lightbox {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.92);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.3s;
+
+  z-index: 99999;
+}
+
+.vivencias-lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.vivencias-lightbox-image {
+  max-width: 90vw;
+  max-height: 90vh;
+
+  object-fit: contain;
+
+  border-radius: 16px;
+}
+
+.close-vivencias-lightbox {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+
+  color: #fff;
+  font-size: 3rem;
+
+  cursor: pointer;
+}
 
 /*=========================================================
     RESPONSIVO

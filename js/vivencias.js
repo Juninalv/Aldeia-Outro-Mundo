@@ -8,7 +8,6 @@ const reveals = document.querySelectorAll(
 
 function revealOnScroll() {
   const windowHeight = window.innerHeight;
-
   const revealPoint = 120;
 
   reveals.forEach((element) => {
@@ -21,7 +20,6 @@ function revealOnScroll() {
 }
 
 window.addEventListener("scroll", revealOnScroll);
-
 window.addEventListener("load", revealOnScroll);
 
 /*=========================================================
@@ -32,16 +30,17 @@ const galleries = document.querySelectorAll(".vivencia-galeria");
 
 galleries.forEach((gallery) => {
   const mainImage = gallery.querySelector(".imagem-principal");
-
   const thumbnails = gallery.querySelectorAll(".galeria-miniaturas img");
 
   thumbnails.forEach((thumb) => {
-    thumb.addEventListener("click", () => {
+    thumb.addEventListener("click", (e) => {
+      e.stopPropagation();
+
       mainImage.style.opacity = "0";
 
       setTimeout(() => {
         mainImage.src = thumb.src;
-
+        mainImage.alt = thumb.alt;
         mainImage.style.opacity = "1";
       }, 200);
     });
@@ -52,32 +51,25 @@ galleries.forEach((gallery) => {
     LIGHTBOX
 =========================================================*/
 
-const galleryImages = document.querySelectorAll(".vivencia-galeria img");
-
 const lightbox = document.createElement("div");
 
-lightbox.classList.add("vivencias-lightbox");
+lightbox.className = "vivencias-lightbox";
 
 lightbox.innerHTML = `
-
-<span class="close-vivencias-lightbox">
-&times;
-</span>
-
-
-<img class="vivencias-lightbox-image">
-
+  <span class="close-vivencias-lightbox">&times;</span>
+  <img class="vivencias-lightbox-image" src="" alt="">
 `;
 
 document.body.appendChild(lightbox);
 
 const lightboxImage = lightbox.querySelector(".vivencias-lightbox-image");
 
-galleryImages.forEach((image) => {
-  image.addEventListener("click", () => {
-    lightbox.classList.add("active");
+/* abre somente ao clicar na imagem principal */
 
+document.querySelectorAll(".imagem-principal").forEach((image) => {
+  image.addEventListener("click", () => {
     lightboxImage.src = image.src;
+    lightbox.classList.add("active");
   });
 });
 
@@ -111,7 +103,6 @@ images.forEach((image) => {
     const rect = image.getBoundingClientRect();
 
     const x = ((event.clientX - rect.left) / rect.width) * 100;
-
     const y = ((event.clientY - rect.top) / rect.height) * 100;
 
     image.style.transformOrigin = `${x}% ${y}%`;
@@ -128,7 +119,6 @@ const lazyObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.loading = "lazy";
-
       lazyObserver.unobserve(entry.target);
     }
   });
@@ -137,6 +127,7 @@ const lazyObserver = new IntersectionObserver((entries) => {
 lazyImages.forEach((img) => {
   lazyObserver.observe(img);
 });
+
 /*=========================================================
     LER MAIS DAS VIVÊNCIAS
 =========================================================*/
@@ -149,14 +140,15 @@ vivenciaButtons.forEach((button) => {
 
     content.classList.toggle("active");
 
-    if (content.classList.contains("active")) {
-      button.textContent = "Mostrar menos";
-    } else {
-      button.textContent = "Ler mais";
-    }
+    button.textContent = content.classList.contains("active")
+      ? "Mostrar menos"
+      : "Ler mais";
   });
 });
-/* MENU MOBILE */
+
+/*=========================================================
+    MENU MOBILE
+=========================================================*/
 
 const menuToggle = document.querySelector("#menu-toggle");
 const nav = document.querySelector("#nav");
@@ -164,11 +156,8 @@ const nav = document.querySelector("#nav");
 if (menuToggle && nav) {
   menuToggle.addEventListener("click", () => {
     nav.classList.toggle("active");
-
     menuToggle.classList.toggle("open");
   });
-
-  // fecha ao clicar em algum link
 
   nav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
