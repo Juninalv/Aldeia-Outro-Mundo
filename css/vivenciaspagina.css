@@ -1,0 +1,274 @@
+/*=========================================================
+    INTRO VIVÊNCIAS
+=========================================================*/
+
+.vivencias-intro {
+  background: var(--bege);
+  padding: 120px 20px 100px;
+  text-align: center;
+}
+
+.vivencias-intro .container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.vivencias-intro h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--verde-claro);
+  margin-bottom: 30px;
+}
+
+.vivencias-intro p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--cinza-escuro);
+}
+
+/*=========================================================
+    SEÇÕES DE EXPERIÊNCIA
+=========================================================*/
+
+.vivencia-item {
+  padding: 100px 20px;
+}
+
+/*
+    Alternância automática
+    Bege / Verde
+*/
+
+.vivencia-item:nth-child(even) {
+  background: var(--verde-escuro);
+  color: var(--bege);
+}
+
+.vivencia-item:nth-child(odd) {
+  background: var(--bege);
+  color: var(--verde-claro);
+}
+
+.vivencia-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.vivencia-container.invert {
+  direction: rtl;
+}
+
+.vivencia-container.invert > * {
+  direction: ltr;
+}
+
+/*=========================================================
+    TEXTOS
+=========================================================*/
+
+.vivencia-texto h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 30px;
+}
+
+.vivencia-texto p {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  text-align: justify;
+}
+
+/*
+    Ajuste das cores conforme fundo
+*/
+
+.vivencia-item:nth-child(even) .vivencia-texto p {
+  color: var(--cinza-transparente);
+}
+
+.vivencia-item:nth-child(odd) .vivencia-texto p {
+  color: var(--cinza-escuro);
+}
+
+/*=========================================================
+    GALERIA
+=========================================================*/
+
+.vivencia-galeria {
+  width: 100%;
+}
+
+.imagem-principal {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 25px;
+  cursor: pointer;
+
+  transition:
+    transform 0.6s ease,
+    opacity 0.3s ease;
+}
+
+.imagem-principal:hover {
+  transform: scale(1.03);
+}
+
+.galeria-miniaturas {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.galeria-miniaturas img {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: 0.3s;
+}
+
+.galeria-miniaturas img:hover {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+/*=========================================================
+    ANIMAÇÕES
+    Compatível com JS global
+=========================================================*/
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: 1s ease;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: 1s ease;
+}
+
+.reveal-left.active,
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.texto-expandido {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+
+  transition:
+    max-height 0.6s ease,
+    opacity 0.4s ease;
+}
+
+.texto-expandido.active {
+  max-height: 800px;
+  opacity: 1;
+}
+
+.vivencia-toggle {
+  margin-top: 25px;
+  padding: 12px 30px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.vivencia-toggle:hover {
+  background: var(--verde-claro);
+  color: var(--bege);
+  border-color: var(--amarelo-claro);
+}
+
+.vivencia-texto p {
+  margin-bottom: 20px;
+}
+
+.texto-expandido p:last-child,
+.texto-resumo p:last-child {
+  margin-bottom: 0;
+}
+
+/*=========================================================
+    DIVISOR DE CONTEÚDO
+=========================================================*/
+
+.vivencias-divider {
+  background: var(--bege);
+  color: var(--verde-claro);
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.divider-content {
+  max-width: 900px;
+  margin: auto;
+}
+
+.divider-content span {
+  display: block;
+  color: var(--verde-claro);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.divider-content h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 30px;
+}
+
+.divider-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--cinza-escuro);
+}
+
+/*=========================================================
+    RESPONSIVO
+=========================================================*/
+
+@media (max-width: 900px) {
+  .vivencia-container,
+  .vivencia-container.invert {
+    grid-template-columns: 1fr;
+
+    direction: ltr;
+  }
+
+  .vivencia-item {
+    padding: 70px 20px;
+  }
+
+  .vivencia-texto h2 {
+    font-size: 2rem;
+  }
+
+  .vivencia-texto p {
+    text-align: left;
+  }
+
+  .imagem-principal {
+    height: 350px;
+  }
+
+  .galeria-miniaturas img {
+    width: 80px;
+
+    height: 65px;
+  }
+}
