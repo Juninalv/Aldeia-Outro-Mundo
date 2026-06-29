@@ -97,14 +97,16 @@
 =========================================================*/
 
 .vivencia-galeria {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .imagem-principal {
   width: 100%;
-  height: 520px;
+  height: 500px;
   object-fit: cover;
-  border-radius: 25px;
+  border-radius: 20px;
   cursor: pointer;
 
   transition:
@@ -117,24 +119,29 @@
 }
 
 .galeria-miniaturas {
-  display: flex;
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
   gap: 15px;
-  margin-top: 20px;
 }
 
 .galeria-miniaturas img {
-  width: 100px;
-  height: 80px;
+  width: 100%;
+
+  height: 120px;
+
   object-fit: cover;
-  border-radius: 12px;
+
+  border-radius: 15px;
+
   cursor: pointer;
-  opacity: 0.75;
-  transition: 0.3s;
+
+  transition: 0.3s ease;
 }
 
 .galeria-miniaturas img:hover {
-  opacity: 1;
-  transform: translateY(-5px);
+  transform: scale(1.05);
 }
 
 /*=========================================================
@@ -236,6 +243,81 @@
   font-size: 1.2rem;
   line-height: 1.8;
   color: var(--cinza-escuro);
+}
+/*=========================================================
+    CTA FINAL
+=========================================================*/
+
+.vivencia-cta {
+  background: var(--bege);
+
+  color: var(--verde-claro);
+
+  padding: 120px 20px;
+
+  text-align: center;
+}
+
+.cta-container {
+  max-width: 900px;
+
+  margin: auto;
+}
+
+.cta-container span {
+  display: block;
+
+  color: var(--verde-claro);
+
+  text-transform: uppercase;
+
+  letter-spacing: 3px;
+
+  font-size: 0.9rem;
+
+  margin-bottom: 20px;
+}
+
+.cta-container h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+
+  margin-bottom: 30px;
+}
+
+.cta-container p {
+  max-width: 750px;
+
+  margin: 0 auto 20px;
+
+  line-height: 1.8;
+
+  font-size: 1.15rem;
+
+  color: var(--cinza-escuro);
+}
+
+.cta-button {
+  display: inline-block;
+
+  margin-top: 30px;
+
+  padding: 15px 40px;
+
+  border: 1px solid var(--verde-claro);
+
+  color: var(--verde-claro);
+
+  text-decoration: none;
+
+  border-radius: 40px;
+
+  transition: 0.3s ease;
+}
+
+.cta-button:hover {
+  background: var(--verde-claro);
+
+  color: var(--bege);
 }
 
 /*=========================================================
