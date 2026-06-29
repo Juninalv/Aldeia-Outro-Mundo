@@ -1,12 +1,9 @@
 .midia {
   position: relative;
   min-height: 70vh;
-
   display: flex;
   align-items: center;
-
   background: url("../img/aldeia-aerea.jpg") center center/cover no-repeat;
-
   overflow: hidden;
 }
 
@@ -35,16 +32,12 @@
 
 .midia-content h2 {
   font-size: clamp(2.5rem, 5vw, 4.5rem);
-
   margin-bottom: 20px;
 }
 
 .midia-content p {
   font-size: 1.1rem;
-
   line-height: 1.8;
-
   margin-bottom: 35px;
-
   opacity: 0.95;
 }
