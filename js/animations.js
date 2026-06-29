@@ -182,15 +182,23 @@ document.addEventListener("DOMContentLoaded", () => {
 /* GALERIA AUTOMÁTICA - PROPÓSITO */
 
 const imagensProposito = [
-  "./img/arte.jpg",
-  "./img/ecologia.jpg",
-  "./img/educacao.jpg",
-  "./img/galeria-2.JPG",
-  "./img/galeria-7.jpg",
-  "./img/palco-chillout.jpg",
-  "./img/galeria-8.jpg",
-  "./img/gaia-conection.jpg",
-  "./img/mundo-de-oz.jpg",
+  "./img/proposito/proposito-et-sol.jpg",
+  "./img/proposito/proposito-ecologia.jpg",
+  "./img/proposito/proposito-educacao.jpg",
+  "./img/proposito/proposito-alien-coffee.jpg",
+  "./img/proposito/proposito-palco-chillout.jpg",
+  "./img/proposito/proposito-lago-3.jpg",
+  "./img/proposito/proposito-gaia-conection.jpg",
+  "./img/proposito/proposito-mundo-de-oz.jpg",
+  "./img/proposito/proposito-casa.jpg",
+  "./img/proposito/proposito-et.jpg",
+  "./img/proposito/proposito-homem.jpg",
+  "./img/proposito/proposito-lago-2.jpg",
+  "./img/proposito/proposito-lago.jpg",
+  "./img/proposito/proposito-mao.jpg",
+  "./img/proposito/proposito-rosto.jpg",
+  "./img/proposito/proposito-santa.jpg",
+  "./img/proposito/proposito-vista.jpg",
 ];
 
 const imagens = document.querySelectorAll(".proposito-images img");
