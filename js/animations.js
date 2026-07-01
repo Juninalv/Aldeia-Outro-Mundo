@@ -317,3 +317,97 @@ if (menuToggle && nav) {
     });
   });
 }
+/* INFRAESTRUTURA */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".explore-grid");
+  const pagination = document.querySelector(".explore-pagination");
+
+  if (!slider || !pagination) return;
+
+  /* ========= Criar bolinhas automaticamente ========= */
+
+  const cards = slider.querySelectorAll(".explore-card");
+
+  let cardsPerView = 5;
+
+  if (window.innerWidth <= 768) {
+    cardsPerView = 1;
+  } else if (window.innerWidth <= 1024) {
+    cardsPerView = 3;
+  }
+
+  const totalPages = Math.max(1, cards.length - cardsPerView + 1);
+
+  pagination.innerHTML = "";
+
+  for (let i = 0; i < totalPages; i++) {
+    const dot = document.createElement("span");
+
+    if (i === 0) {
+      dot.classList.add("active");
+    }
+
+    pagination.appendChild(dot);
+  }
+
+  const dots = pagination.querySelectorAll("span");
+
+  /* ========= Atualizar bolinha ativa ========= */
+
+  function updatePagination() {
+    const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+    if (maxScroll <= 0) return;
+
+    const progress = slider.scrollLeft / maxScroll;
+
+    const index = Math.round(progress * (dots.length - 1));
+
+    dots.forEach((dot) => dot.classList.remove("active"));
+
+    if (dots[index]) {
+      dots[index].classList.add("active");
+    }
+  }
+
+  slider.addEventListener("scroll", updatePagination);
+
+  updatePagination();
+
+  /* ========= Arrastar com o mouse ========= */
+
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  slider.addEventListener("mousedown", (e) => {
+    isDown = true;
+
+    slider.classList.add("dragging");
+
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+
+  slider.addEventListener("mouseleave", () => {
+    isDown = false;
+    slider.classList.remove("dragging");
+  });
+
+  slider.addEventListener("mouseup", () => {
+    isDown = false;
+    slider.classList.remove("dragging");
+  });
+
+  slider.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+
+    e.preventDefault();
+
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2;
+
+    slider.scrollLeft = scrollLeft - walk;
+  });
+});

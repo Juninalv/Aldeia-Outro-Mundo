@@ -34,87 +34,114 @@
   line-height: 1.8;
 }
 
-/* GRID */
+/* ==========================
+   CARROSSEL
+========================== */
 
 .explore-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
   gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  padding-bottom: 14px;
+  cursor: grab;
+  scrollbar-width: none;
 }
 
-/* CARD */
+.explore-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.explore-grid.dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+/* ==========================
+   CARD
+========================== */
 
 .explore-card {
-  text-decoration: none;
-  color: inherit;
+  flex: 0 0 calc((100% - 96px) / 5.5);
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--verde-escuro);
+
   border-radius: 20px;
   overflow: hidden;
-  transition: transform 0.3s ease;
+
+  scroll-snap-align: start;
+
+  transition: transform 0.3s;
 }
 
 .explore-card:hover {
   transform: translateY(-6px);
 }
 
-/* IMAGEM */
-
 .explore-card img {
   width: 100%;
-  height: 260px;
+  height: 240px;
   object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.5s;
 }
 
 .explore-card:hover img {
   transform: scale(1.05);
 }
 
-/* INFORMAÇÕES */
-
 .card-info {
-  background: var(--verde-escuro);
-  padding: 18px;
-  min-height: 120px;
   display: flex;
   flex-direction: column;
+  gap: 10px;
+
+  flex: 1;
+
+  padding: 22px;
 }
 
 .card-info h3 {
+  margin: 0;
   color: var(--bege);
   font-size: 1.25rem;
-  margin-bottom: 8px;
 }
 
 .card-info p {
+  margin: 0;
   color: var(--cinza-claro);
-  font-size: 0.9rem;
-  line-height: 1.5;
+  line-height: 1.7;
+  font-size: 0.95rem;
 }
+/* ==========================
+   PAGINAÇÃO DO CARROSSEL
+========================== */
 
-/* BOTÃO */
-
-.explore-footer {
-  margin-top: 60px;
-  text-align: center;
-}
-
-.btn-explore {
-  display: inline-flex;
-  align-items: center;
+.explore-pagination {
+  display: flex;
   justify-content: center;
-  padding: 14px 30px;
-  background: var(--verde-escuro);
-  color: var(--bege);
-  text-decoration: none;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.explore-pagination span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(43, 73, 54, 0.25);
+  transition: all 0.3s ease;
+}
+
+.explore-pagination span.active {
+  width: 28px;
   border-radius: 999px;
-  transition: 0.3s ease;
+  background: var(--verde-claro);
 }
-
-.btn-explore:hover {
-  transform: translateY(-3px);
-}
-
 /* ==========================
    TABLET
 ========================== */
@@ -126,25 +153,18 @@
 
   .explore-header {
     margin-bottom: 45px;
-    max-width: 650px;
   }
 
   .explore-grid {
-    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
 
+  .explore-card {
+    flex: 0 0 calc((100% - 40px) / 3.5);
+  }
+
   .explore-card img {
-    height: 230px;
-  }
-
-  .card-info {
-    min-height: 130px;
-    padding: 16px;
-  }
-
-  .card-info h3 {
-    font-size: 1.15rem;
+    height: 220px;
   }
 }
 
@@ -163,7 +183,6 @@
 
   .explore-header span {
     font-size: 0.75rem;
-    letter-spacing: 1.5px;
   }
 
   .explore-header h2 {
@@ -172,15 +191,14 @@
 
   .explore-header p {
     font-size: 0.95rem;
-    line-height: 1.7;
   }
 
   .explore-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 16px;
   }
 
   .explore-card {
+    flex: 0 0 82%;
     border-radius: 16px;
   }
 
@@ -189,25 +207,7 @@
   }
 
   .card-info {
-    min-height: auto;
     padding: 18px;
-  }
-
-  .card-info h3 {
-    font-size: 1.15rem;
-  }
-
-  .card-info p {
-    font-size: 0.9rem;
-  }
-
-  .explore-footer {
-    margin-top: 40px;
-  }
-
-  .btn-explore {
-    width: 100%;
-    max-width: 260px;
   }
 }
 
@@ -222,6 +222,10 @@
 
   .explore-header h2 {
     font-size: 1.9rem;
+  }
+
+  .explore-card {
+    flex: 0 0 88%;
   }
 
   .explore-card img {
