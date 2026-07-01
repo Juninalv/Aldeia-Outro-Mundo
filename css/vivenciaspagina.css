@@ -3,7 +3,7 @@
 =========================================================*/
 
 .vivencias-intro {
-  background: var(--bege);
+  background: var(--verde-escuro);
   padding: 120px 20px 100px;
   text-align: center;
 }
@@ -15,14 +15,14 @@
 
 .vivencias-intro h1 {
   font-size: clamp(2.5rem, 5vw, 4rem);
-  color: var(--verde-claro);
+  color: var(--bege);
   margin-bottom: 30px;
 }
 
 .vivencias-intro p {
   font-size: 1.2rem;
   line-height: 1.8;
-  color: var(--cinza-escuro);
+  color: var(--cinza-claro);
 }
 
 /*=========================================================
