@@ -411,3 +411,45 @@ document.addEventListener("DOMContentLoaded", () => {
     slider.scrollLeft = scrollLeft - walk;
   });
 });
+/* VÍDEO APRESENTAÇÃO */
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".video-card").forEach((card) => {
+    const video = card.querySelector("video");
+    const button = card.querySelector(".play-button");
+
+    if (!video || !button) return;
+
+    const showButton = () => button.classList.remove("hide");
+    const hideButton = () => button.classList.add("hide");
+
+    // CLICK NO BOTÃO (PLAY)
+    button.addEventListener("click", (e) => {
+      e.stopPropagation();
+      video.play();
+      hideButton();
+    });
+
+    // CLICK NO VÍDEO (PAUSE/PLAY TOGGLE)
+    video.addEventListener("click", () => {
+      if (video.paused) {
+        video.play();
+        hideButton();
+      } else {
+        video.pause();
+        showButton();
+      }
+    });
+
+    // QUANDO TOCAR
+    video.addEventListener("play", hideButton);
+
+    // QUANDO PAUSAR
+    video.addEventListener("pause", () => {
+      if (!video.ended) showButton();
+    });
+
+    // QUANDO TERMINAR
+    video.addEventListener("ended", showButton);
+  });
+});

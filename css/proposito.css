@@ -126,7 +126,8 @@
 ========================== */
 
 .video-apresentacao {
-  margin-top: 7rem;
+  margin: 7rem 0;
+  padding: 0 20px;
 }
 
 .video-content {
@@ -134,33 +135,39 @@
   margin: 0 auto;
   padding: 4rem 2rem;
   text-align: center;
+
   background: linear-gradient(
     180deg,
     rgba(22, 52, 31, 0.03),
     rgba(22, 52, 31, 0.07)
   );
+
   border: 1px solid rgba(22, 52, 31, 0.08);
   border-radius: 32px;
 }
 
 .video-subtitle {
   display: inline-block;
-  font-size: 0.8rem;
-  letter-spacing: 3px;
-  font-weight: 600;
-  color: var(--verde-claro);
   margin-bottom: 1rem;
+
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+
+  color: var(--verde-claro);
 }
 
 .video-content h3 {
+  margin-bottom: 1rem;
+
   font-size: 2.5rem;
   color: var(--verde-claro);
-  margin-bottom: 1rem;
 }
 
 .video-content p {
   max-width: 520px;
   margin: 0 auto 2.5rem;
+
   line-height: 1.8;
   color: var(--cinza-escuro);
 }
@@ -168,23 +175,120 @@
 .video-wrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.video-wrapper video {
+.video-card {
+  position: relative;
+  display: inline-block;
+
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.video-card video {
+  display: block;
   width: 100%;
   max-width: 360px;
+
   border-radius: 24px;
-  display: block;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+  border: 3px solid rgba(22, 52, 31, 0.12);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.18),
+    0 0 0 rgba(22, 52, 31, 0.25);
+
   transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
-.video-wrapper video:hover {
+.video-card:hover video {
   transform: translateY(-6px);
-  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.22);
+
+  border-color: rgba(22, 52, 31, 0.45);
+
+  box-shadow:
+    0 35px 70px rgba(0, 0, 0, 0.22),
+    0 0 30px rgba(22, 52, 31, 0.18);
 }
+
+.play-button {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  z-index: 2;
+
+  transition: opacity 0.3s ease;
+}
+
+.play-button::before {
+  content: "";
+
+  position: absolute;
+  inset: -10px;
+
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+
+  animation: ripple 2s infinite;
+}
+
+.play-button i {
+  width: 90px;
+  height: 90px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(22, 52, 31, 0.82);
+  color: #fff;
+
+  font-size: 2rem;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+  animation: pulsePlay 2s infinite;
+}
+
+@keyframes pulsePlay {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+.play-button.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.7);
+}
+
 /* ==========================
    TABLET
 ========================== */
@@ -314,7 +418,8 @@
     font-size: 1.8rem;
   }
   .video-apresentacao {
-    margin-top: 5rem;
+    margin: 5rem 0;
+    padding: 0 16px;
   }
 
   .video-content {
@@ -330,8 +435,14 @@
     font-size: 0.95rem;
   }
 
-  .video-wrapper video {
+  .video-card video {
     max-width: 300px;
+  }
+
+  .play-button i {
+    width: 75px;
+    height: 75px;
+    font-size: 1.7rem;
   }
 }
 
@@ -359,5 +470,26 @@
 
   .pilar-icon i {
     font-size: 1.5rem;
+  }
+  .video-content {
+    padding: 2.5rem 1.2rem;
+  }
+
+  .video-content h3 {
+    font-size: 1.6rem;
+  }
+
+  .video-content p {
+    font-size: 0.9rem;
+  }
+
+  .video-card video {
+    max-width: 100%;
+  }
+
+  .play-button i {
+    width: 65px;
+    height: 65px;
+    font-size: 1.4rem;
   }
 }
