@@ -17,6 +17,7 @@
 }
 
 /* fundo leve decorativo */
+
 .reportagem::before {
   content: "";
   position: absolute;
@@ -48,14 +49,14 @@
 }
 
 /* ==================================================
-   VÍDEO
+   MÍDIA
 ================================================== */
 
-.reportagem-video {
+.reportagem-media {
   width: 100%;
 }
 
-.video-wrapper {
+.media-wrapper {
   position: relative;
   width: 100%;
   padding-top: 56.25%;
@@ -63,11 +64,12 @@
   overflow: hidden;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
   transition: transform 0.4s ease;
+  background: #000;
 }
 
-.video-wrapper iframe,
-.video-wrapper video,
-.video-wrapper img {
+.media-wrapper iframe,
+.media-wrapper video,
+.media-wrapper img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -77,15 +79,19 @@
   object-fit: cover;
 }
 
-.video-wrapper:hover {
+.media-wrapper video {
+  background: #000;
+}
+
+.media-wrapper:hover {
   transform: scale(1.02);
 }
 
-.video-wrapper img {
+.media-wrapper img {
   transition: transform 0.4s ease;
 }
 
-.video-wrapper:hover img {
+.media-wrapper:hover img {
   transform: scale(1.03);
 }
 
@@ -106,6 +112,7 @@
 }
 
 /* cores por tema */
+
 .reportagem-dark .reportagem-tag {
   color: var(--amarelo-claro);
 }
@@ -131,6 +138,7 @@
 }
 
 /* texto */
+
 .reportagem-content h2 {
   font-size: 2.6rem;
   line-height: 1.2;
@@ -144,21 +152,22 @@
   font-size: 1.05rem;
   max-width: 95%;
 }
-
 /* ==================================================
    ANIMAÇÕES
 ================================================== */
 
 .reportagem-content,
-.reportagem-video {
+.reportagem-media {
   opacity: 0;
   transform: translateY(30px);
-  transition: 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 
 .reveal.active .reportagem-content,
-.reveal-left.active .reportagem-video,
-.reveal-right.active .reportagem-video {
+.reveal-left.active .reportagem-media,
+.reveal-right.active .reportagem-media {
   opacity: 1;
   transform: translateY(0);
 }
@@ -166,6 +175,13 @@
 /* ==================================================
    BOTÕES
 ================================================== */
+
+.reportagem-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
 
 .reportagem-light .btn-outline {
   border: 1px solid var(--verde-claro);
@@ -251,13 +267,13 @@
 .reportagem-end p {
   color: var(--cinza-claro);
   max-width: 750px;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 40px;
   line-height: 1.9;
   font-size: 1.1rem;
 }
 
 /* ==================================================
-   SOCIAL MEDIA (CORRIGIDO E ISOLADO)
+   SOCIAL MEDIA
 ================================================== */
 
 .social-media {
@@ -337,7 +353,7 @@
   width: 0%;
   height: 1px;
   background: var(--bege);
-  transition: 0.3s ease;
+  transition: width 0.3s ease;
 }
 
 .social-media__link:hover {
@@ -349,7 +365,24 @@
 }
 
 /* ==================================================
-   RESPONSIVO (ÚNICO E LIMPO)
+   AJUSTES DE MÍDIA
+================================================== */
+
+.media-wrapper video {
+  outline: none;
+}
+
+.media-wrapper video::-webkit-media-controls {
+  border-radius: var(--radius-lg);
+}
+
+.media-wrapper img,
+.media-wrapper iframe,
+.media-wrapper video {
+  border-radius: inherit;
+}
+/* ==================================================
+   RESPONSIVO
 ================================================== */
 
 @media (max-width: 1024px) {
@@ -358,96 +391,165 @@
   }
 
   .reportagem-grid {
-    gap: 50px;
+    gap: 60px;
   }
 
   .reportagem-content h2 {
     font-size: 2.2rem;
   }
 
-  .reportagem-end h2,
-  .reportagem-intro h2 {
+  .reportagem-intro h2,
+  .reportagem-end h2 {
     font-size: 2.3rem;
   }
 }
 
 @media (max-width: 768px) {
-  .reportagem {
+  .reportagem,
+  .reportagem-intro,
+  .social-media,
+  .reportagem-end {
     padding: 70px 0;
   }
 
   .reportagem-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 35px;
   }
 
   .reportagem-grid.reverse {
     direction: ltr;
   }
 
+  .reportagem-media {
+    order: 1;
+    width: 100%;
+  }
+
+  .reportagem-content {
+    order: 2;
+    align-items: center;
+    text-align: center;
+  }
+
+  .media-wrapper {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .reportagem-tag {
+    margin-bottom: 18px;
+  }
+
   .reportagem-content h2 {
-    font-size: 1.9rem;
+    font-size: 2rem;
+    max-width: 18ch;
+    margin: 0 auto 20px;
   }
 
   .reportagem-content p {
+    max-width: 100%;
+    margin: 0 auto 22px;
     font-size: 1rem;
+    line-height: 1.8;
   }
 
-  .reportagem-intro,
-  .reportagem-end {
-    padding: 80px 20px;
+  .reportagem-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
   }
 
-  .social-media {
-    padding: 80px 20px;
+  .reportagem-buttons .btn-primary,
+  .reportagem-buttons .btn-outline {
+    width: auto;
+    min-width: 220px;
+    text-align: center;
   }
 
+  .reportagem-intro h2,
   .social-media__title {
-    font-size: 1.9rem;
+    font-size: 2rem;
+  }
+
+  .reportagem-intro p,
+  .social-media__text {
+    max-width: 90%;
+    margin: auto;
+  }
+
+  .social-media .container {
+    gap: 60px;
   }
 
   .social-media__links {
-    gap: 15px;
-  }
-
-  .social-media__name {
-    font-size: 1.2rem;
+    justify-content: center;
+    gap: 18px;
   }
 }
 
 @media (max-width: 480px) {
-  .reportagem {
-    padding: 60px 0;
+  .reportagem,
+  .reportagem-intro,
+  .social-media,
+  .reportagem-end {
+    padding: 55px 0;
   }
 
-  .reportagem-content h2 {
-    font-size: 1.6rem;
-  }
-
-  .reportagem-content p {
-    font-size: 0.95rem;
+  .reportagem-grid {
+    gap: 28px;
   }
 
   .reportagem-tag {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
+    letter-spacing: 1.8px;
   }
 
-  .social-media {
-    padding: 60px 15px;
+  .reportagem-content h2 {
+    font-size: 1.65rem;
+    line-height: 1.25;
+    max-width: 100%;
   }
 
-  .social-media__title {
-    font-size: 1.6rem;
+  .reportagem-content p {
+    font-size: 0.97rem;
+    line-height: 1.75;
+  }
+
+  .reportagem-intro h2,
+  .social-media__title,
+  .reportagem-end h2 {
+    font-size: 1.7rem;
+  }
+
+  .reportagem-intro p,
+  .social-media__text,
+  .reportagem-end p {
+    font-size: 0.98rem;
+  }
+
+  .social-media__name {
+    font-size: 1.3rem;
   }
 
   .social-media__links {
     flex-direction: column;
-    gap: 12px;
+    align-items: center;
+    gap: 15px;
   }
 
-  .btn-primary,
-  .btn-outline {
+  .reportagem-buttons {
     width: 100%;
-    text-align: center;
+  }
+
+  .reportagem-buttons .btn-primary,
+  .reportagem-buttons .btn-outline {
+    width: 100%;
+    max-width: 320px;
   }
 }

@@ -2,7 +2,7 @@ const reveals = document.querySelectorAll(
   ".reveal, .reveal-left, .reveal-right, .reveal-scale",
 );
 
-const observer = new IntersectionObserver(
+const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -15,16 +15,22 @@ const observer = new IntersectionObserver(
   },
 );
 
-reveals.forEach((item) => observer.observe(item));
+reveals.forEach((item) => revealObserver.observe(item));
 
 window.addEventListener("load", () => {
   reveals.forEach((item) => {
     const rect = item.getBoundingClientRect();
+
     if (rect.top < window.innerHeight) {
       item.classList.add("active");
     }
   });
 });
+
+/* =========================================
+   MENU MOBILE
+========================================== */
+
 const menuToggle = document.querySelector("#menu-toggle");
 const nav = document.querySelector("#nav");
 
@@ -41,19 +47,22 @@ if (menuToggle && nav) {
     });
   });
 }
+
 document.addEventListener("DOMContentLoaded", () => {
   /* =========================================
-     VIDEO (iframe - opcional melhorias futuras)
+     MÍDIAS (Vídeos, Imagens e iframes)
   ========================================== */
 
-  const videos = document.querySelectorAll(".reportagem-video iframe");
+  const medias = document.querySelectorAll(
+    ".reportagem-media video, .reportagem-media iframe, .reportagem-media img",
+  );
 
-  videos.forEach((video) => {
-    // reservado para melhorias futuras (autoplay, pause on scroll, etc)
+  medias.forEach(() => {
+    // reservado para melhorias futuras
   });
 
   /* =========================================
-     PARALLAX SUAVE NAS SEÇÕES
+     PARALLAX
   ========================================== */
 
   const sections = document.querySelectorAll(".reportagem");
@@ -77,14 +86,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* =========================================
-     REVEAL EXTRA (garante entrada suave)
+     REVEAL DAS REPORTAGENS
   ========================================== */
 
   const items = document.querySelectorAll(
-    ".reportagem-content, .reportagem-video",
+    ".reportagem-content, .reportagem-media",
   );
 
-  const observer = new IntersectionObserver(
+  const itemObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -97,10 +106,10 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   );
 
-  items.forEach((item) => observer.observe(item));
+  items.forEach((item) => itemObserver.observe(item));
 
   /* =========================================
-     GARANTE ELEMENTOS VISÍVEIS NO LOAD
+     GARANTE VISIBILIDADE NO LOAD
   ========================================== */
 
   window.addEventListener("load", () => {
