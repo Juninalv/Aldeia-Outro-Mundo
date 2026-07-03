@@ -166,6 +166,12 @@
   color: var(--bege);
 }
 
+.reportagem-light .btn-primary {
+  border: 1px solid var(--verde-claro);
+  color: var(--bege);
+  background: var(--verde-claro);
+}
+
 .btn-primary {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
