@@ -117,7 +117,19 @@
         <div class="container">
           <div class="project-grid">
             <div class="project-image reveal-left">
-              <img src="img/projetos/logo-apo.png" alt="Aldeia Apó" />
+              <picture>
+                <!-- imagem para mobile -->
+                <source
+                  media="(max-width: 768px)"
+                  srcset="./img/projetos/aldeia-apo/apo-mobile.jpeg"
+                />
+
+                <!-- imagem padrão (desktop) -->
+                <img
+                  src="./img/projetos/aldeia-apo/apo-desktop.jpeg"
+                  alt="Aldeia Apó"
+                />
+              </picture>
             </div>
 
             <div class="project-content reveal-right">
