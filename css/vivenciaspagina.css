@@ -1,7 +1,3 @@
-/*=========================================================
-    INTRO VIVÊNCIAS
-=========================================================*/
-
 .vivencias-intro {
   background: var(--verde-escuro);
   padding: 120px 20px 100px;
@@ -25,18 +21,9 @@
   color: var(--cinza-claro);
 }
 
-/*=========================================================
-    SEÇÕES DE EXPERIÊNCIA
-=========================================================*/
-
 .vivencia-item {
   padding: 100px 20px;
 }
-
-/*
-    Alternância automática
-    Bege / Verde
-*/
 
 .vivencia-item:nth-child(even) {
   background: var(--verde-escuro);
@@ -65,10 +52,6 @@
   direction: ltr;
 }
 
-/*=========================================================
-    TEXTOS
-=========================================================*/
-
 .vivencia-texto h2 {
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 30px;
@@ -80,10 +63,6 @@
   text-align: justify;
 }
 
-/*
-    Ajuste das cores conforme fundo
-*/
-
 .vivencia-item:nth-child(even) .vivencia-texto p {
   color: var(--cinza-transparente);
 }
@@ -91,10 +70,6 @@
 .vivencia-item:nth-child(odd) .vivencia-texto p {
   color: var(--cinza-escuro);
 }
-
-/*=========================================================
-    GALERIA
-=========================================================*/
 
 .vivencia-galeria {
   display: flex;
@@ -108,7 +83,6 @@
   object-fit: cover;
   border-radius: 20px;
   cursor: pointer;
-
   transition:
     transform 0.6s ease,
     opacity 0.3s ease;
@@ -120,34 +94,22 @@
 
 .galeria-miniaturas {
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   gap: 15px;
 }
 
 .galeria-miniaturas img {
   width: 100%;
-
   height: 120px;
-
   object-fit: cover;
-
   border-radius: 15px;
-
   cursor: pointer;
-
   transition: 0.3s ease;
 }
 
 .galeria-miniaturas img:hover {
   transform: scale(1.05);
 }
-
-/*=========================================================
-    ANIMAÇÕES
-    Compatível com JS global
-=========================================================*/
 
 .reveal-left {
   opacity: 0;
@@ -209,10 +171,6 @@
   margin-bottom: 0;
 }
 
-/*=========================================================
-    DIVISOR DE CONTEÚDO
-=========================================================*/
-
 .vivencias-divider {
   background: var(--bege);
   color: var(--verde-claro);
@@ -244,73 +202,49 @@
   line-height: 1.8;
   color: var(--cinza-escuro);
 }
-/*=========================================================
-    CTA FINAL
-=========================================================*/
 
 .vivencia-cta {
   background: var(--bege);
-
   color: var(--verde-claro);
-
   padding: 120px 20px;
-
   text-align: center;
 }
 
 .cta-container {
   max-width: 900px;
-
   margin: auto;
 }
 
 .cta-container span {
   display: block;
-
   color: var(--verde-claro);
-
   text-transform: uppercase;
-
   letter-spacing: 3px;
-
   font-size: 0.9rem;
-
   margin-bottom: 20px;
 }
 
 .cta-container h2 {
   font-size: clamp(2.5rem, 5vw, 4rem);
-
   margin-bottom: 30px;
 }
 
 .cta-container p {
   max-width: 750px;
-
   margin: 0 auto 20px;
-
   line-height: 1.8;
-
   font-size: 1.15rem;
-
   color: var(--cinza-escuro);
 }
 
 .cta-button {
   display: inline-block;
-
   margin-top: 30px;
-
   padding: 15px 40px;
-
   border: 1px solid var(--verde-claro);
-
   color: var(--verde-claro);
-
   text-decoration: none;
-
   border-radius: 40px;
-
   transition: 0.3s ease;
 }
 
@@ -319,25 +253,17 @@
 
   color: var(--bege);
 }
-/*=========================================================
-    LIGHTBOX
-=========================================================*/
 
 .vivencias-lightbox {
   position: fixed;
   inset: 0;
-
   background: rgba(0, 0, 0, 0.92);
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   opacity: 0;
   visibility: hidden;
-
   transition: 0.3s;
-
   z-index: 99999;
 }
 
@@ -349,9 +275,7 @@
 .vivencias-lightbox-image {
   max-width: 90vw;
   max-height: 90vh;
-
   object-fit: contain;
-
   border-radius: 16px;
 }
 
@@ -359,16 +283,10 @@
   position: absolute;
   top: 20px;
   right: 30px;
-
   color: #fff;
   font-size: 3rem;
-
   cursor: pointer;
 }
-
-/*=========================================================
-    RESPONSIVO
-=========================================================*/
 
 @media (max-width: 900px) {
   .vivencia-container,
