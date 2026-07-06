@@ -31,8 +31,6 @@
   position: relative;
 }
 
-/* hamburguer */
-
 .menu-toggle {
   display: none;
   background: none;
@@ -90,10 +88,6 @@
   color: var(--preto);
 }
 
-/* ==========================
-   TABLET
-========================== */
-
 @media (max-width: 1024px) {
   .header {
     padding: 20px 0;
@@ -115,10 +109,6 @@
     padding: 12px 20px;
   }
 }
-
-/* ==========================
-   MOBILE
-========================== */
 
 @media (max-width: 768px) {
   .header {
@@ -163,9 +153,6 @@
     display: none;
   }
 }
-/* ==========================
-   MOBILE PEQUENO
-========================== */
 
 @media (max-width: 480px) {
   .header {

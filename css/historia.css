@@ -121,10 +121,6 @@
   line-height: 1.6;
 }
 
-/* ==========================
-   TABLET
-========================== */
-
 @media (max-width: 1024px) {
   .historia {
     padding: 90px 0;
@@ -158,10 +154,6 @@
     font-size: 24px;
   }
 }
-
-/* ==========================
-   MOBILE
-========================== */
 
 @media (max-width: 768px) {
   .historia {
@@ -230,10 +222,6 @@
     line-height: 1.7;
   }
 }
-
-/* ==========================
-   MOBILE PEQUENO
-========================== */
 
 @media (max-width: 480px) {
   .timeline-track {

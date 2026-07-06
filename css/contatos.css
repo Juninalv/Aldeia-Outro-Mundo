@@ -1,7 +1,3 @@
-/* ==========================
-   CONTATO
-========================== */
-
 .contato {
   padding: 120px 0;
   background: var(--bege);
@@ -88,10 +84,6 @@
   font-size: 1rem;
 }
 
-/* ==========================
-   TABLET
-========================== */
-
 @media (max-width: 1024px) {
   .contato {
     padding: 90px 0;
@@ -115,10 +107,6 @@
     font-size: 1.15rem;
   }
 }
-
-/* ==========================
-   MOBILE
-========================== */
 
 @media (max-width: 768px) {
   .contato {
@@ -168,10 +156,6 @@
     font-size: 0.9rem;
   }
 }
-
-/* ==========================
-   MOBILE PEQUENO
-========================== */
 
 @media (max-width: 480px) {
   .contato {

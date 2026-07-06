@@ -1,7 +1,3 @@
-/* ==========================
-   HOSPEDAGEM
-========================== */
-
 .hospedagem-opcoes {
   padding: 120px 0;
   background: var(--verde-escuro);
@@ -75,9 +71,6 @@
 .hosp-card:hover img {
   transform: scale(1.08);
 }
-/* ==========================
-   TABLET
-========================== */
 
 @media (max-width: 1024px) {
   .hospedagem-opcoes {
@@ -110,10 +103,6 @@
     border-radius: 18px;
   }
 }
-
-/* ==========================
-   MOBILE
-========================== */
 
 @media (max-width: 768px) {
   .hospedagem-opcoes {
@@ -156,10 +145,6 @@
     font-size: 0.95rem;
   }
 }
-
-/* ==========================
-   MOBILE PEQUENO
-========================== */
 
 @media (max-width: 480px) {
   .hospedagem-opcoes {

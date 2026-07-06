@@ -1,7 +1,3 @@
-/* ===================================
-   SEÇÃO PROJETOS
-=================================== */
-
 .projetos {
   display: grid;
   grid-template-columns: 35% 65%;
@@ -10,10 +6,6 @@
   padding: 100px 5%;
   background: var(--verde-escuro);
 }
-
-/* ===================================
-   TEXTO ESQUERDA
-=================================== */
 
 .projetos-info {
   color: var(--bege);
@@ -45,18 +37,10 @@
   color: var(--verde-escuro);
 }
 
-/* ===================================
-   CONTAINER
-=================================== */
-
 .projetos-container {
   width: 100%;
   overflow: hidden;
 }
-
-/* ===================================
-   CARROSSEL DESKTOP
-=================================== */
 
 .projetos-grid {
   display: flex;
@@ -82,10 +66,6 @@
   user-select: none;
 }
 
-/* ===================================
-   CARD
-=================================== */
-
 .projeto-card {
   flex: 0 0 45%;
   background: var(--bege);
@@ -98,10 +78,6 @@
 .projeto-card:hover {
   transform: translateY(-8px);
 }
-
-/* ===================================
-   IMAGEM
-=================================== */
 
 .projeto-imagem {
   width: 100%;
@@ -120,10 +96,6 @@
 .projeto-card:hover .projeto-imagem img {
   transform: scale(1.05);
 }
-
-/* ===================================
-   TEXTO
-=================================== */
 
 .projeto-info-card {
   padding: 24px;
@@ -154,18 +126,10 @@
   transform: translateX(5px);
 }
 
-/* ===================================
-   REMOVE ELEMENTOS ANTIGOS
-=================================== */
-
 .slider-btn,
 .slider-dots {
   display: none !important;
 }
-
-/* ===================================
-   TABLET
-=================================== */
 
 @media (max-width: 1024px) {
   .projetos {
@@ -197,10 +161,6 @@
     flex: 0 0 60%;
   }
 }
-
-/* ===================================
-   MOBILE
-=================================== */
 
 @media (max-width: 768px) {
   .projetos {
@@ -262,10 +222,6 @@
     line-height: 1.7;
   }
 }
-
-/* ===================================
-   MOBILE PEQUENO
-=================================== */
 
 @media (max-width: 480px) {
   .projetos {

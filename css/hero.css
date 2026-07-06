@@ -80,9 +80,6 @@
 .btn-outline:hover {
   background: rgba(255, 255, 255, 0.1);
 }
-/* ==========================
-   TABLET
-========================== */
 
 @media (max-width: 1024px) {
   .hero {
@@ -112,10 +109,6 @@
     padding: 14px 26px;
   }
 }
-
-/* ==========================
-   MOBILE
-========================== */
 
 @media (max-width: 768px) {
   .hero {
@@ -173,10 +166,6 @@
     padding: 14px 20px;
   }
 }
-
-/* ==========================
-   MOBILE PEQUENO
-========================== */
 
 @media (max-width: 480px) {
   .hero {
