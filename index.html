@@ -52,7 +52,7 @@
           Visite a Aldeia
         </a>
 
-        <button class="menu-toggle" id="menu-toggle">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
           <span></span>
           <span></span>
           <span></span>
@@ -1419,15 +1419,15 @@
       </section>
       <section class="galeria-home" id="galeria">
         <div class="galeria-grid">
-          <img src="./img/galeria/galeria-1.jpg" alt="" />
-          <img src="./img/galeria/galeria-2.jpg" alt="" />
-          <img src="./img/galeria/galeria-3.jpg" alt="" />
-          <img src="./img/galeria/galeria-4.jpg" alt="" />
-          <img src="./img/galeria/galeria-5.jpg" alt="" />
-          <img src="./img/galeria/galeria-6.jpg" alt="" />
-          <img src="./img/galeria/galeria-7.jpg" alt="" />
-          <img src="./img/galeria/galeria-8.jpg" alt="" />
-          <img src="./img/galeria/galeria-9.jpg" alt="" />
+          <img src="./img/galeria/galeria-1.jpg" alt="galeria foto 1" />
+          <img src="./img/galeria/galeria-2.jpg" alt="galeria foto 2" />
+          <img src="./img/galeria/galeria-3.jpg" alt="galeria foto 3" />
+          <img src="./img/galeria/galeria-4.jpg" alt="galeria foto 4" />
+          <img src="./img/galeria/galeria-5.jpg" alt="galeria foto 5" />
+          <img src="./img/galeria/galeria-6.jpg" alt="galeria foto 6" />
+          <img src="./img/galeria/galeria-7.jpg" alt="galeria foto 7" />
+          <img src="./img/galeria/galeria-8.jpg" alt="galeria foto 8" />
+          <img src="./img/galeria/galeria-9.jpg" alt="galeria foto 9" />
         </div>
 
         <div class="galeria-overlay"></div>
@@ -1453,7 +1453,9 @@
           </div>
 
           <div class="relatos-slider">
-            <button class="relato-btn prev">&#10094;</button>
+            <button class="relato-btn prev" aria-label="Relato anterior">
+              &#10094;
+            </button>
 
             <div class="relato-track">
               <!-- CAIO FRANCA -->
@@ -1644,7 +1646,9 @@ Costa Perinotto"
               </div>
             </div>
 
-            <button class="relato-btn next">&#10095;</button>
+            <button class="relato-btn next" aria-label="Próximo relato">
+              &#10095;
+            </button>
           </div>
 
           <div class="relato-dots">
@@ -1790,9 +1794,11 @@ Costa Perinotto"
     </footer>
     <div class="sust-modal" id="sustModal">
       <div class="modal-content">
-        <button class="modal-close" id="closeModal">✕</button>
+        <button class="modal-close" id="closeModal" aria-label="Fechar vídeo">
+          ✕
+        </button>
 
-        <img id="modalImg" src="" alt="" />
+        <img id="modalImg" src="" alt="modalImg" />
 
         <div class="modal-body">
           <h3 id="modalTitle"></h3>
