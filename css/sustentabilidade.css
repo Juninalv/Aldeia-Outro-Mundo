@@ -261,6 +261,16 @@
     padding: 70px 0;
   }
 
+  .card-content::after {
+    content: "Toque para saber mais";
+    display: block;
+    margin-top: 8px;
+
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+  }
+
   .sustentabilidade .section-header {
     margin-bottom: 30px;
   }
