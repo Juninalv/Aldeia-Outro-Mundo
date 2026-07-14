@@ -1,0 +1,31 @@
+name: Deploy Automatico Cloud Run
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout do Código
+      uses: actions/checkout@v4
+
+    - name: Autenticar no Google Cloud
+      uses: google-github-actions/auth@v2
+      with:
+        workload_identity_provider: 'projects/141969107009/locations/global/workloadIdentityPools/github-gastrobar-deployer-pool/providers/github-provider'
+        service_account: 'github-gastrobar-deployer@aldeia-outro-mundo.iam.gserviceaccount.com'
+
+    - name: Build e Deploy no Cloud Run
+      uses: google-github-actions/deploy-cloudrun@v2
+      with:
+        service: 'site-aldeiaoutromundo'
+        region: 'us-central1'
+        source: './'
+        flags: '--allow-unauthenticated'
