@@ -31,57 +31,67 @@ window.addEventListener("load", () => {
 });
 
 /* TIMELINE */
+/* ==========================================================
+   SLIDER HORIZONTAL REUTILIZÁVEL
+========================================================== */
 
-const timelineItems = document.querySelectorAll(".timeline-item");
+function createHorizontalSlider({
+  wrapperSelector,
+  containerSelector,
+  itemSelector,
+  previousButtonSelector,
+  nextButtonSelector,
+  paginationSelector,
+  dragSpeed = 1,
+}) {
+  const wrapper = document.querySelector(wrapperSelector);
+  const container = document.querySelector(containerSelector);
 
-const timelineObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  },
-  {
-    threshold: 0.3,
-  },
-);
+  if (!container) return;
 
-timelineItems.forEach((item) => {
-  timelineObserver.observe(item);
-});
+  const items = Array.from(container.querySelectorAll(itemSelector));
 
-const timelineSlider = document.querySelector(".timeline-slider");
-const timelineContainer = document.querySelector(".timeline-container");
-const timelinePrevButton = document.querySelector(".timeline-arrow-prev");
-const timelineNextButton = document.querySelector(".timeline-arrow-next");
-const timelinePagination = document.querySelector(".timeline-pagination");
+  if (!items.length) return;
 
-if (
-  timelineSlider &&
-  timelineContainer &&
-  timelinePrevButton &&
-  timelineNextButton &&
-  timelinePagination &&
-  timelineItems.length
-) {
-  let currentTimelineIndex = 0;
-  let timelinePositions = [];
-  let timelineScrollTimeout;
-  let isTimelineDragging = false;
+  const previousButton = previousButtonSelector
+    ? document.querySelector(previousButtonSelector)
+    : null;
+
+  const nextButton = nextButtonSelector
+    ? document.querySelector(nextButtonSelector)
+    : null;
+
+  const pagination = paginationSelector
+    ? document.querySelector(paginationSelector)
+    : null;
+
+  let sliderPositions = [];
+  let currentPositionIndex = 0;
+
+  let scrollTimeout;
+  let animationTimeout;
+
+  let isDragging = false;
+  let isProgrammaticScroll = false;
+
+  let dragStartX = 0;
+  let initialScrollLeft = 0;
 
   /* ========================================================
-     CALCULAR POSIÇÕES REAIS DA TIMELINE
+     CALCULAR POSIÇÕES REAIS POSSÍVEIS
   ======================================================== */
 
-  function calculateTimelinePositions() {
-    const maximumScroll =
-      timelineContainer.scrollWidth - timelineContainer.clientWidth;
+  function calculatePositions() {
+    const maximumScroll = container.scrollWidth - container.clientWidth;
 
+    const containerRect = container.getBoundingClientRect();
     const positions = [];
 
-    timelineItems.forEach((item) => {
-      const itemPosition = item.offsetLeft;
+    items.forEach((item) => {
+      const itemRect = item.getBoundingClientRect();
+
+      const itemPosition =
+        container.scrollLeft + itemRect.left - containerRect.left;
 
       const validPosition = Math.max(0, Math.min(itemPosition, maximumScroll));
 
@@ -95,43 +105,46 @@ if (
     });
 
     /*
-      Garante que a posição final sempre corresponda
-      exatamente ao limite máximo da rolagem.
+      Garante que o final físico do slider seja uma
+      posição válida, mesmo quando o último item não
+      consegue encostar totalmente na lateral esquerda.
     */
 
-    if (
-      positions.length === 0 ||
-      Math.abs(positions[positions.length - 1] - maximumScroll) >= 5
-    ) {
+    const finalPositionAlreadyExists = positions.some(
+      (position) => Math.abs(position - maximumScroll) < 5,
+    );
+
+    if (!finalPositionAlreadyExists && maximumScroll > 0) {
       positions.push(maximumScroll);
     }
 
-    timelinePositions = positions;
+    positions.sort((a, b) => a - b);
+
+    sliderPositions = positions;
   }
 
   /* ========================================================
-     CRIAR BOLINHAS
+     CRIAR PAGINAÇÃO
   ======================================================== */
 
-  function createTimelinePagination() {
-    timelinePagination.innerHTML = "";
+  function createPagination() {
+    if (!pagination) return;
 
-    timelinePositions.forEach((position, index) => {
+    pagination.innerHTML = "";
+
+    sliderPositions.forEach((position, index) => {
       const button = document.createElement("button");
 
       button.type = "button";
-      button.classList.add("timeline-pagination-button");
+      button.classList.add("slider-pagination-button");
 
-      button.setAttribute(
-        "aria-label",
-        `Ir para a posição ${index + 1} da linha do tempo`,
-      );
+      button.setAttribute("aria-label", `Ir para a posição ${index + 1}`);
 
       button.addEventListener("click", () => {
-        goToTimelinePosition(index);
+        goToPosition(index);
       });
 
-      timelinePagination.appendChild(button);
+      pagination.appendChild(button);
     });
   }
 
@@ -139,58 +152,79 @@ if (
      ATUALIZAR SETAS E BOLINHAS
   ======================================================== */
 
-  function updateTimelineControls() {
-    const paginationButtons = timelinePagination.querySelectorAll(
-      ".timeline-pagination-button",
-    );
+  function updateControls() {
+    if (pagination) {
+      const paginationButtons = pagination.querySelectorAll(
+        ".slider-pagination-button",
+      );
 
-    paginationButtons.forEach((button, index) => {
-      const isActive = index === currentTimelineIndex;
+      paginationButtons.forEach((button, index) => {
+        const isActive = index === currentPositionIndex;
 
-      button.classList.toggle("active", isActive);
+        button.classList.toggle("active", isActive);
 
-      if (isActive) {
-        button.setAttribute("aria-current", "true");
-      } else {
-        button.removeAttribute("aria-current");
-      }
-    });
+        if (isActive) {
+          button.setAttribute("aria-current", "true");
+        } else {
+          button.removeAttribute("aria-current");
+        }
+      });
+    }
 
-    timelinePrevButton.disabled = currentTimelineIndex === 0;
+    if (previousButton) {
+      previousButton.disabled = currentPositionIndex === 0;
+    }
 
-    timelineNextButton.disabled =
-      currentTimelineIndex === timelinePositions.length - 1;
+    if (nextButton) {
+      nextButton.disabled = currentPositionIndex === sliderPositions.length - 1;
+    }
   }
 
   /* ========================================================
      IR PARA UMA POSIÇÃO
   ======================================================== */
 
-  function goToTimelinePosition(index) {
-    currentTimelineIndex = Math.max(
-      0,
-      Math.min(index, timelinePositions.length - 1),
-    );
+  function goToPosition(index) {
+    if (!sliderPositions.length) return;
 
-    timelineContainer.scrollTo({
-      left: timelinePositions[currentTimelineIndex],
+    const validIndex = Math.max(0, Math.min(index, sliderPositions.length - 1));
+
+    currentPositionIndex = validIndex;
+    isProgrammaticScroll = true;
+
+    clearTimeout(animationTimeout);
+
+    container.scrollTo({
+      left: sliderPositions[currentPositionIndex],
       behavior: "smooth",
     });
 
-    updateTimelineControls();
+    updateControls();
+
+    /*
+      Evita que o evento de scroll altere o índice
+      enquanto a rolagem suave ainda está acontecendo.
+    */
+
+    animationTimeout = setTimeout(() => {
+      isProgrammaticScroll = false;
+      updateCurrentPosition();
+    }, 550);
   }
 
   /* ========================================================
-     DESCOBRIR POSIÇÃO ATUAL
+     IDENTIFICAR POSIÇÃO ATUAL
   ======================================================== */
 
-  function updateTimelineCurrentPosition() {
-    const currentScroll = timelineContainer.scrollLeft;
+  function updateCurrentPosition() {
+    if (!sliderPositions.length || isProgrammaticScroll) return;
+
+    const currentScroll = container.scrollLeft;
 
     let closestIndex = 0;
     let closestDistance = Infinity;
 
-    timelinePositions.forEach((position, index) => {
+    sliderPositions.forEach((position, index) => {
       const distance = Math.abs(currentScroll - position);
 
       if (distance < closestDistance) {
@@ -199,35 +233,39 @@ if (
       }
     });
 
-    currentTimelineIndex = closestIndex;
+    currentPositionIndex = closestIndex;
 
-    updateTimelineControls();
+    updateControls();
   }
 
   /* ========================================================
      SETAS
   ======================================================== */
 
-  timelinePrevButton.addEventListener("click", () => {
-    goToTimelinePosition(currentTimelineIndex - 1);
-  });
+  if (previousButton) {
+    previousButton.addEventListener("click", () => {
+      goToPosition(currentPositionIndex - 1);
+    });
+  }
 
-  timelineNextButton.addEventListener("click", () => {
-    goToTimelinePosition(currentTimelineIndex + 1);
-  });
+  if (nextButton) {
+    nextButton.addEventListener("click", () => {
+      goToPosition(currentPositionIndex + 1);
+    });
+  }
 
   /* ========================================================
-     ROLAGEM
+     ROLAGEM MANUAL
   ======================================================== */
 
-  timelineContainer.addEventListener(
+  container.addEventListener(
     "scroll",
     () => {
-      clearTimeout(timelineScrollTimeout);
+      clearTimeout(scrollTimeout);
 
-      timelineScrollTimeout = setTimeout(() => {
-        if (!isTimelineDragging) {
-          updateTimelineCurrentPosition();
+      scrollTimeout = setTimeout(() => {
+        if (!isDragging && !isProgrammaticScroll) {
+          updateCurrentPosition();
         }
       }, 120);
     },
@@ -240,47 +278,47 @@ if (
      ARRASTAR COM O MOUSE
   ======================================================== */
 
-  let timelineStartX = 0;
-  let timelineInitialScroll = 0;
+  container.addEventListener("mousedown", (event) => {
+    isDragging = true;
+    isProgrammaticScroll = false;
 
-  timelineContainer.addEventListener("mousedown", (event) => {
-    isTimelineDragging = true;
+    clearTimeout(animationTimeout);
 
-    timelineContainer.classList.add("dragging");
+    container.classList.add("dragging");
 
-    timelineStartX = event.pageX;
-    timelineInitialScroll = timelineContainer.scrollLeft;
+    dragStartX = event.pageX;
+    initialScrollLeft = container.scrollLeft;
   });
 
-  timelineContainer.addEventListener("mousemove", (event) => {
-    if (!isTimelineDragging) return;
+  container.addEventListener("mousemove", (event) => {
+    if (!isDragging) return;
 
     event.preventDefault();
 
-    const movement = (event.pageX - timelineStartX) * 0.6;
+    const movement = (event.pageX - dragStartX) * dragSpeed;
 
-    timelineContainer.scrollLeft = timelineInitialScroll - movement;
+    container.scrollLeft = initialScrollLeft - movement;
   });
 
-  function stopTimelineDragging() {
-    if (!isTimelineDragging) return;
+  function stopDragging() {
+    if (!isDragging) return;
 
-    isTimelineDragging = false;
+    isDragging = false;
 
-    timelineContainer.classList.remove("dragging");
+    container.classList.remove("dragging");
 
-    updateTimelineCurrentPosition();
+    updateCurrentPosition();
   }
 
-  timelineContainer.addEventListener("mouseup", stopTimelineDragging);
+  container.addEventListener("mouseup", stopDragging);
+  container.addEventListener("mouseleave", stopDragging);
 
-  timelineContainer.addEventListener("mouseleave", stopTimelineDragging);
+  /*
+    Impede o navegador de arrastar a imagem,
+    preservando o arraste do slider.
+  */
 
-  /* ========================================================
-     EVITAR ARRASTAR IMAGENS
-  ======================================================== */
-
-  timelineContainer.querySelectorAll("img").forEach((image) => {
+  container.querySelectorAll("img").forEach((image) => {
     image.addEventListener("dragstart", (event) => {
       event.preventDefault();
     });
@@ -290,53 +328,135 @@ if (
      TECLADO
   ======================================================== */
 
-  timelineSlider.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowLeft") {
-      event.preventDefault();
+  if (wrapper) {
+    wrapper.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
 
-      goToTimelinePosition(currentTimelineIndex - 1);
-    }
+        goToPosition(currentPositionIndex - 1);
+      }
 
-    if (event.key === "ArrowRight") {
-      event.preventDefault();
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
 
-      goToTimelinePosition(currentTimelineIndex + 1);
-    }
-  });
+        goToPosition(currentPositionIndex + 1);
+      }
+    });
+  }
 
   /* ========================================================
-     REDIMENSIONAMENTO
+     RESPONSIVIDADE
   ======================================================== */
 
   window.addEventListener("resize", () => {
-    clearTimeout(timelineScrollTimeout);
+    clearTimeout(scrollTimeout);
+    clearTimeout(animationTimeout);
 
-    timelineScrollTimeout = setTimeout(() => {
-      calculateTimelinePositions();
-      createTimelinePagination();
+    isProgrammaticScroll = false;
 
-      currentTimelineIndex = Math.min(
-        currentTimelineIndex,
-        timelinePositions.length - 1,
+    scrollTimeout = setTimeout(() => {
+      const previousProgress =
+        sliderPositions.length > 1
+          ? currentPositionIndex / (sliderPositions.length - 1)
+          : 0;
+
+      calculatePositions();
+      createPagination();
+
+      currentPositionIndex = Math.round(
+        previousProgress * Math.max(0, sliderPositions.length - 1),
       );
 
-      timelineContainer.scrollTo({
-        left: timelinePositions[currentTimelineIndex],
+      currentPositionIndex = Math.max(
+        0,
+        Math.min(currentPositionIndex, sliderPositions.length - 1),
+      );
+
+      container.scrollTo({
+        left: sliderPositions[currentPositionIndex] || 0,
         behavior: "auto",
       });
 
-      updateTimelineControls();
-    }, 150);
+      updateControls();
+    }, 180);
   });
 
   /* ========================================================
      INICIALIZAÇÃO
   ======================================================== */
 
-  calculateTimelinePositions();
-  createTimelinePagination();
-  updateTimelineControls();
+  calculatePositions();
+  createPagination();
+  updateCurrentPosition();
+  updateControls();
 }
+
+/* ==========================================================
+   ANIMAÇÃO DA TIMELINE
+========================================================== */
+
+const timelineItems = document.querySelectorAll(".timeline-item");
+
+if (timelineItems.length) {
+  const timelineObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    {
+      threshold: 0.3,
+    },
+  );
+
+  timelineItems.forEach((item) => {
+    timelineObserver.observe(item);
+  });
+}
+
+/* ==========================================================
+   INICIALIZAR TIMELINE
+========================================================== */
+
+createHorizontalSlider({
+  wrapperSelector: ".timeline-slider",
+  containerSelector: ".timeline-container",
+  itemSelector: ".timeline-item",
+  previousButtonSelector: ".timeline-arrow-prev",
+  nextButtonSelector: ".timeline-arrow-next",
+  paginationSelector: ".timeline-pagination",
+  dragSpeed: 0.6,
+});
+
+/* ==========================================================
+   INICIALIZAR PROJETOS
+========================================================== */
+
+createHorizontalSlider({
+  wrapperSelector: ".projetos-container",
+  containerSelector: ".projetos-grid",
+  itemSelector: ".projeto-card",
+  previousButtonSelector: ".projetos-arrow-prev",
+  nextButtonSelector: ".projetos-arrow-next",
+  paginationSelector: ".slider-dots",
+  dragSpeed: 2,
+});
+
+/* ==========================================================
+   INICIALIZAR INFRAESTRUTURA
+========================================================== */
+
+createHorizontalSlider({
+  wrapperSelector: ".explore-slider",
+  containerSelector: ".explore-grid",
+  itemSelector: ".explore-card",
+  previousButtonSelector: ".explore-arrow-prev",
+  nextButtonSelector: ".explore-arrow-next",
+  paginationSelector: ".explore-pagination",
+  dragSpeed: 2,
+});
 
 /* SUSTENTABILIDADE */
 
@@ -394,46 +514,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-/* PROJETOS */
 
-document.addEventListener("DOMContentLoaded", () => {
-  const projetosSlider = document.querySelector(".projetos-grid");
-
-  if (!projetosSlider) return;
-
-  let isDown = false;
-  let startX;
-  let scrollLeft;
-
-  projetosSlider.addEventListener("mousedown", (e) => {
-    isDown = true;
-    projetosSlider.classList.add("dragging");
-
-    startX = e.pageX - projetosSlider.offsetLeft;
-    scrollLeft = projetosSlider.scrollLeft;
-  });
-
-  projetosSlider.addEventListener("mouseleave", () => {
-    isDown = false;
-    projetosSlider.classList.remove("dragging");
-  });
-
-  projetosSlider.addEventListener("mouseup", () => {
-    isDown = false;
-    projetosSlider.classList.remove("dragging");
-  });
-
-  projetosSlider.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-
-    e.preventDefault();
-
-    const x = e.pageX - projetosSlider.offsetLeft;
-    const walk = (x - startX) * 2;
-
-    projetosSlider.scrollLeft = scrollLeft - walk;
-  });
-});
 /* GALERIA AUTOMÁTICA - PROPÓSITO */
 
 const imagensProposito = [
@@ -572,100 +653,7 @@ if (menuToggle && nav) {
     });
   });
 }
-/* INFRAESTRUTURA */
 
-document.addEventListener("DOMContentLoaded", () => {
-  const slider = document.querySelector(".explore-grid");
-  const pagination = document.querySelector(".explore-pagination");
-
-  if (!slider || !pagination) return;
-
-  /* ========= Criar bolinhas automaticamente ========= */
-
-  const cards = slider.querySelectorAll(".explore-card");
-
-  let cardsPerView = 5;
-
-  if (window.innerWidth <= 768) {
-    cardsPerView = 1;
-  } else if (window.innerWidth <= 1024) {
-    cardsPerView = 3;
-  }
-
-  const totalPages = Math.max(1, cards.length - cardsPerView + 1);
-
-  pagination.innerHTML = "";
-
-  for (let i = 0; i < totalPages; i++) {
-    const dot = document.createElement("span");
-
-    if (i === 0) {
-      dot.classList.add("active");
-    }
-
-    pagination.appendChild(dot);
-  }
-
-  const dots = pagination.querySelectorAll("span");
-
-  /* ========= Atualizar bolinha ativa ========= */
-
-  function updatePagination() {
-    const maxScroll = slider.scrollWidth - slider.clientWidth;
-
-    if (maxScroll <= 0) return;
-
-    const progress = slider.scrollLeft / maxScroll;
-
-    const index = Math.round(progress * (dots.length - 1));
-
-    dots.forEach((dot) => dot.classList.remove("active"));
-
-    if (dots[index]) {
-      dots[index].classList.add("active");
-    }
-  }
-
-  slider.addEventListener("scroll", updatePagination);
-
-  updatePagination();
-
-  /* ========= Arrastar com o mouse ========= */
-
-  let isDown = false;
-  let startX;
-  let scrollLeft;
-
-  slider.addEventListener("mousedown", (e) => {
-    isDown = true;
-
-    slider.classList.add("dragging");
-
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-  });
-
-  slider.addEventListener("mouseleave", () => {
-    isDown = false;
-    slider.classList.remove("dragging");
-  });
-
-  slider.addEventListener("mouseup", () => {
-    isDown = false;
-    slider.classList.remove("dragging");
-  });
-
-  slider.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-
-    e.preventDefault();
-
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2;
-
-    slider.scrollLeft = scrollLeft - walk;
-  });
-});
 /* VÍDEO APRESENTAÇÃO */
 
 document.addEventListener("DOMContentLoaded", () => {

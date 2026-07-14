@@ -839,7 +839,19 @@
           </a>
         </div>
 
-        <div class="projetos-container">
+        <div
+          class="projetos-container"
+          tabindex="0"
+          aria-label="Carrossel de projetos"
+        >
+          <button
+            class="projetos-arrow projetos-arrow-prev"
+            type="button"
+            aria-label="Ver projeto anterior"
+          >
+            &#10094;
+          </button>
+
           <div class="projetos-grid">
             <article class="projeto-card">
               <div class="projeto-imagem">
@@ -858,6 +870,7 @@
 
               <div class="projeto-info-card">
                 <h3>Aldeia APÓ - Viveiro Educador de Árvores Nativas</h3>
+
                 <p>
                   Em parceria com a iniciativa APÓ ("raiz" em guarani), criamos
                   um viveiro educador de árvores nativas. Unimos pesquisa,
@@ -865,6 +878,7 @@
                   climáticas e promover a educação ambiental de forma lúdica e
                   acessível.
                 </p>
+
                 <a href="projetos.html#apo">Saiba Mais →</a>
               </div>
             </article>
@@ -876,6 +890,7 @@
 
               <div class="projeto-info-card">
                 <h3>Mais Abelha - Educação e Sustentabilidade Ambiental</h3>
+
                 <p>
                   A Mais Abelha, fundada por Carlos Bessa (Kanô), utiliza a
                   meliponicultura (criação de abelhas nativas sem ferrão) como
@@ -883,17 +898,22 @@
                   ecopedagógico é um espaço de aprendizado sobre a importância
                   vital dos polinizadores para o equilíbrio da vida.
                 </p>
+
                 <a href="projetos.html#abelha">Saiba Mais →</a>
               </div>
             </article>
 
             <article class="projeto-card">
               <div class="projeto-imagem">
-                <img src="./img/projetos/meliponario.jpg" alt="Meliponáro" />
+                <img
+                  src="./img/projetos/meliponario.jpg"
+                  alt="Meliponário Ecopedagógico"
+                />
               </div>
 
               <div class="projeto-info-card">
                 <h3>Meliponário Ecopedagógico</h3>
+
                 <p>
                   O meliponário ecopedagógico é um espaço educador ambientalista
                   construído na Aldeia Outro Mundo em parceria com a Mais Abelha
@@ -902,6 +922,7 @@
                   sustentabilidade ambiental através da utilização didática das
                   abelhas indígenas sem ferrão e suas relações ambientais.
                 </p>
+
                 <a href="projetos.html#meliponario">Saiba Mais →</a>
               </div>
             </article>
@@ -910,18 +931,20 @@
               <div class="projeto-imagem">
                 <img
                   src="./img/projetos/reflorestamento.jpg"
-                  alt="Reflorestamento"
+                  alt="Projeto de reflorestamento"
                 />
               </div>
 
               <div class="projeto-info-card">
                 <h3>Reflorestamento</h3>
+
                 <p>
                   A Aldeia Outro Mundo, em suas intervenções ecológicas,
                   compromete-se a beneficiar não só seus espaços, mas também o
                   entorno, já são mais de 10 mil mudas nativas plantadas e pelo
                   menos 6 minas d’água beneficiadas com aumento de seu volume.
                 </p>
+
                 <a href="projetos.html#reflorestamento">Saiba Mais →</a>
               </div>
             </article>
@@ -930,16 +953,18 @@
               <div class="projeto-imagem">
                 <img
                   src="./img/projetos/maple-bear/maple-bear.jpg"
-                  alt="Pedagógico"
+                  alt="Expedição pedagógica na Aldeia Outro Mundo"
                 />
               </div>
 
               <div class="projeto-info-card">
                 <h3>Expedição Aldeia Outro Mundo Receptivo Escolar</h3>
+
                 <p>
                   Educação Ambiental • Ecopedagogia • Recreação • Vivências na
                   Natureza • Estudo do Meio
                 </p>
+
                 <p>
                   Vivencie com sua escola uma experiência educativa imersiva,
                   onde a natureza se transforma em sala de aula e cada atividade
@@ -949,14 +974,24 @@
                   desenvolvem competências essenciais e tornam a aprendizagem
                   significativa, divertida e inesquecível.
                 </p>
+
                 <a href="projetos.html#visitas">Saiba Mais →</a>
               </div>
             </article>
           </div>
 
-          <div class="slider-dots"></div>
+          <button
+            class="projetos-arrow projetos-arrow-next"
+            type="button"
+            aria-label="Ver próximo projeto"
+          >
+            &#10095;
+          </button>
+
+          <div class="slider-dots" aria-label="Navegação dos projetos"></div>
         </div>
       </section>
+
       <section class="vivencias" id="experiencias">
         <div class="vivencias-overlay"></div>
 
@@ -1042,381 +1077,425 @@
             </p>
           </div>
 
-          <div class="explore-grid">
-            <div class="explore-card">
-              <img src="./img/infraestrutura/lago.jpg" alt="Lago" />
+          <div
+            class="explore-slider"
+            tabindex="0"
+            aria-label="Carrossel de espaços da infraestrutura"
+          >
+            <button
+              class="explore-arrow explore-arrow-prev"
+              type="button"
+              aria-label="Ver espaço anterior"
+            >
+              &#10094;
+            </button>
 
-              <div class="card-info">
-                <h3>Lago</h3>
+            <div class="explore-grid">
+              <article class="explore-card">
+                <img src="./img/infraestrutura/lago.jpg" alt="Lago" />
 
-                <p>
-                  Um espaço de contemplação cercado pela natureza, ideal para
-                  descanso, meditação e momentos de conexão com o ambiente da
-                  Aldeia.
-                </p>
-              </div>
+                <div class="card-info">
+                  <h3>Lago</h3>
+
+                  <p>
+                    Um espaço de contemplação cercado pela natureza, ideal para
+                    descanso, meditação e momentos de conexão com o ambiente da
+                    Aldeia.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img
+                  src="./img/infraestrutura/gastro-bar.jpg"
+                  alt="D'Aldeia Gastro Bar"
+                />
+
+                <div class="card-info">
+                  <h3>D'Aldeia Gastro Bar</h3>
+
+                  <p>
+                    Restaurante com gastronomia diferenciada, combinando sabores
+                    locais, pratos especiais e uma experiência acolhedora para
+                    os visitantes.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img src="./img/infraestrutura/mush-bar.png" alt="Mush Bar" />
+
+                <div class="card-info">
+                  <h3>Mush Bar</h3>
+
+                  <p>
+                    Bar temático com drinks exclusivos e um ambiente
+                    descontraído para reunir amigos e aproveitar a programação
+                    dos eventos.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img
+                  src="./img/infraestrutura/alien-cafe.jpg"
+                  alt="Alien Café"
+                />
+
+                <div class="card-info">
+                  <h3>Alien Café</h3>
+
+                  <p>
+                    Cafeteria com cafés especiais, bebidas e lanches em um
+                    ambiente acolhedor para relaxar e apreciar a natureza.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img
+                  src="./img/infraestrutura/nossa-senhora.jpg"
+                  alt="Capela"
+                />
+
+                <div class="card-info">
+                  <h3>Capela</h3>
+
+                  <p>
+                    Espaço dedicado à espiritualidade, celebrações e momentos de
+                    reflexão, integrado à tranquilidade da Aldeia.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img src="./img/infraestrutura/geodesia.jpg" alt="Geodésica" />
+
+                <div class="card-info">
+                  <h3>Geodésica</h3>
+
+                  <p>
+                    Estrutura versátil para workshops, cerimônias, apresentações
+                    e diversas atividades realizadas ao longo dos eventos.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img
+                  src="./img/infraestrutura/aldeia-fit.jpg"
+                  alt="Aldeia Fit"
+                />
+
+                <div class="card-info">
+                  <h3>Aldeia Fit</h3>
+
+                  <p>
+                    Um espaço dedicado à alimentação saudável, com açaís, sucos,
+                    lanches naturais e vitaminas proteicas para renovar as
+                    energias.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img
+                  src="./img/infraestrutura/infopoint.jpg"
+                  alt="Info Point"
+                />
+
+                <div class="card-info">
+                  <h3>Info Point</h3>
+
+                  <p>
+                    Ponto de apoio aos visitantes, com informações, achados e
+                    perdidos, carregamento de celulares e suporte aos hóspedes
+                    da Aldeia.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img
+                  src="./img/infraestrutura/aldeia-sustentavel.jpg"
+                  alt="Tenda Aldeia Sustentável"
+                />
+
+                <div class="card-info">
+                  <h3>Tenda Aldeia Sustentável</h3>
+
+                  <p>
+                    Espaço dedicado à educação ambiental, com exposições,
+                    oficinas, palestras e atividades que promovem
+                    sustentabilidade e conexão com a natureza.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img src="./img/infraestrutura/hidrataoz.jpg" alt="HidrataOz" />
+
+                <div class="card-info">
+                  <h3>HidrataOz</h3>
+
+                  <p>
+                    Ponto de hidratação gratuito com água potável, promovendo
+                    bem-estar, cuidado coletivo e conforto aos visitantes.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img
+                  src="./img/infraestrutura/estacionamento.jpg"
+                  alt="Estacionamento"
+                />
+
+                <div class="card-info">
+                  <h3>Estacionamento</h3>
+
+                  <p>
+                    Ampla estrutura para eventos de grande porte, oferecendo
+                    segurança, organização e comodidade aos visitantes.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img src="./img/infraestrutura/portaria.jpg" alt="Portaria" />
+
+                <div class="card-info">
+                  <h3>Portaria</h3>
+
+                  <p>
+                    Estrutura de acesso e recepção para grandes eventos, com
+                    credenciamento, segurança e organização para os visitantes.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img
+                  src="./img/infraestrutura/cozinha-comunitaria.jpg"
+                  alt="Cozinha Comunitária"
+                />
+
+                <div class="card-info">
+                  <h3>Cozinha Comunitária</h3>
+
+                  <p>
+                    Estrutura equipada para preparo de refeições, proporcionando
+                    conforto, praticidade e momentos de convivência entre os
+                    visitantes.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img
+                  src="./img/infraestrutura/cozinha-industrial.jpg"
+                  alt="Cozinha Industrial"
+                />
+
+                <div class="card-info">
+                  <h3>Cozinha Industrial</h3>
+
+                  <p>
+                    Estrutura completa para alimentação em grande escala, com
+                    pratos variados, opções artesanais e sabores produzidos com
+                    ingredientes locais.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img
+                  src="./img/infraestrutura/praca-alimentacao.jpg"
+                  alt="Praça de Alimentação"
+                />
+
+                <div class="card-info">
+                  <h3>Praça de Alimentação</h3>
+
+                  <p>
+                    Espaço amplo com diversas opções gastronômicas, incluindo
+                    refeições, lanches, cafés e produtos preparados com
+                    qualidade.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img src="./img/infraestrutura/pracinha.jpg" alt="Pracinha" />
+
+                <div class="card-info">
+                  <h3>Pracinha</h3>
+
+                  <p>
+                    Espaço gastronômico com opções refrescantes e variadas,
+                    reunindo sabores como açaí, sorvetes, poke e churrasco.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img
+                  src="./img/infraestrutura/enfermaria.jpg"
+                  alt="Enfermaria"
+                />
+
+                <div class="card-info">
+                  <h3>Enfermaria</h3>
+
+                  <p>
+                    Estrutura de atendimento e cuidado aos visitantes, com
+                    equipe preparada para garantir segurança e bem-estar durante
+                    os eventos.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img
+                  src="./img/infraestrutura/espaco-guardia.jpg"
+                  alt="Espaço Guardiã"
+                />
+
+                <div class="card-info">
+                  <h3>Espaço Guardiã</h3>
+
+                  <p>
+                    Ambiente de acolhimento e cuidado, criado para oferecer
+                    conforto, segurança e suporte aos visitantes durante os
+                    eventos.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img
+                  src="./img/infraestrutura/duchas.jpg"
+                  alt="Duchas e Banheiros"
+                />
+
+                <div class="card-info">
+                  <h3>Duchas e Banheiros</h3>
+
+                  <p>
+                    Estrutura completa para conforto dos visitantes, com duchas
+                    quentes e frias e manutenção contínua durante os eventos.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img
+                  src="./img/infraestrutura/residuos.jpg"
+                  alt="Espaço de Coleta Seletiva de Resíduos Catia Galheigo"
+                />
+
+                <div class="card-info">
+                  <h3>Coleta Seletiva de Resíduos</h3>
+
+                  <p>
+                    Espaço dedicado à separação e destinação correta de
+                    resíduos, promovendo sustentabilidade e cuidado com o meio
+                    ambiente.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img
+                  src="./img/infraestrutura/atelie-ivana.jpg"
+                  alt="Ateliê Ivana"
+                />
+
+                <div class="card-info">
+                  <h3>Ateliê Ivana</h3>
+
+                  <p>
+                    Espaço criativo onde arte, reaproveitamento e
+                    sustentabilidade se unem para transformar ideias em cenários
+                    e experiências únicas.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img src="./img/infraestrutura/pousada.jpg" alt="Pousadas" />
+
+                <div class="card-info">
+                  <h3>Pousadas</h3>
+
+                  <p>
+                    Hospedagens confortáveis em meio à natureza, com opções
+                    variadas para proporcionar descanso e uma experiência
+                    acolhedora.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img src="./img/infraestrutura/camping.jpeg" alt="Camping" />
+
+                <div class="card-info">
+                  <h3>Camping</h3>
+
+                  <p>
+                    Área ampla para hospedagem em barracas, com estrutura
+                    completa de duchas e banheiros para conforto dos visitantes.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img
+                  src="./img/infraestrutura/hotel-barraca.jpg"
+                  alt="Hotel de Barracas"
+                />
+
+                <div class="card-info">
+                  <h3>Hotel de Barracas</h3>
+
+                  <p>
+                    Hospedagem em barracas estruturadas com conforto, segurança
+                    e estrutura privativa para uma experiência diferenciada.
+                  </p>
+                </div>
+              </article>
+
+              <article class="explore-card">
+                <img src="./img/infraestrutura/seguranca.jpg" alt="Segurança" />
+
+                <div class="card-info">
+                  <h3>Segurança</h3>
+
+                  <p>
+                    Estrutura com monitoramento, equipe especializada e
+                    protocolos de acesso para garantir tranquilidade e proteção
+                    aos visitantes.
+                  </p>
+                </div>
+              </article>
             </div>
 
-            <div class="explore-card">
-              <img
-                src="./img/infraestrutura/gastro-bar.jpg"
-                alt="D'Aldeia Gastro Bar"
-              />
-
-              <div class="card-info">
-                <h3>D'Aldeia Gastro Bar</h3>
-
-                <p>
-                  Restaurante com gastronomia diferenciada, combinando sabores
-                  locais, pratos especiais e uma experiência acolhedora para os
-                  visitantes.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img src="./img/infraestrutura/mush-bar.png" alt="Mush Bar" />
-
-              <div class="card-info">
-                <h3>Mush Bar</h3>
-
-                <p>
-                  Bar temático com drinks exclusivos e um ambiente descontraído
-                  para reunir amigos e aproveitar a programação dos eventos.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img src="./img/infraestrutura/alien-cafe.jpg" alt="Alien Café" />
-
-              <div class="card-info">
-                <h3>Alien Café</h3>
-
-                <p>
-                  Cafeteria com cafés especiais, bebidas e lanches em um
-                  ambiente acolhedor para relaxar e apreciar a natureza.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img src="./img/infraestrutura/nossa-senhora.jpg" alt="Capela" />
-
-              <div class="card-info">
-                <h3>Capela</h3>
-
-                <p>
-                  Espaço dedicado à espiritualidade, celebrações e momentos de
-                  reflexão, integrado à tranquilidade da Aldeia.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img src="./img/infraestrutura/geodesia.jpg" alt="Geodésica" />
-
-              <div class="card-info">
-                <h3>Geodésica</h3>
-
-                <p>
-                  Estrutura versátil para workshops, cerimônias, apresentações e
-                  diversas atividades realizadas ao longo dos eventos.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img src="./img/infraestrutura/aldeia-fit.jpg" alt="Aldeia Fit" />
-
-              <div class="card-info">
-                <h3>Aldeia Fit</h3>
-
-                <p>
-                  Um espaço dedicado à alimentação saudável, com açaís, sucos,
-                  lanches naturais e vitaminas proteicas para renovar as
-                  energias.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img src="./img/infraestrutura/infopoint.jpg" alt="Info Point" />
-
-              <div class="card-info">
-                <h3>Info Point</h3>
-
-                <p>
-                  Ponto de apoio aos visitantes, com informações, achados e
-                  perdidos, carregamento de celulares e suporte aos hóspedes da
-                  Aldeia.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img
-                src="./img/infraestrutura/aldeia-sustentavel.jpg"
-                alt="Tenda Aldeia Sustentável"
-              />
-
-              <div class="card-info">
-                <h3>Tenda Aldeia Sustentável</h3>
-
-                <p>
-                  Espaço dedicado à educação ambiental, com exposições,
-                  oficinas, palestras e atividades que promovem sustentabilidade
-                  e conexão com a natureza.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img src="./img/infraestrutura/hidrataoz.jpg" alt="HidrataOz" />
-
-              <div class="card-info">
-                <h3>HidrataOz</h3>
-
-                <p>
-                  Ponto de hidratação gratuito com água potável, promovendo
-                  bem-estar, cuidado coletivo e conforto aos visitantes.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img
-                src="./img/infraestrutura/estacionamento.jpg"
-                alt="Estacionamento"
-              />
-
-              <div class="card-info">
-                <h3>Estacionamento</h3>
-
-                <p>
-                  Ampla estrutura para eventos de grande porte, oferecendo
-                  segurança, organização e comodidade aos visitantes.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img src="./img/infraestrutura/portaria.jpg" alt="Portaria" />
-
-              <div class="card-info">
-                <h3>Portaria</h3>
-
-                <p>
-                  Estrutura de acesso e recepção para grandes eventos, com
-                  credenciamento, segurança e organização para os visitantes.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img
-                src="./img/infraestrutura/cozinha-comunitaria.jpg"
-                alt="Cozinha Comunitária"
-              />
-
-              <div class="card-info">
-                <h3>Cozinha Comunitária</h3>
-
-                <p>
-                  Estrutura equipada para preparo de refeições, proporcionando
-                  conforto, praticidade e momentos de convivência entre os
-                  visitantes.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img
-                src="./img/infraestrutura/cozinha-industrial.jpg"
-                alt="Cozinha Industrial"
-              />
-
-              <div class="card-info">
-                <h3>Cozinha Industrial</h3>
-
-                <p>
-                  Estrutura completa para alimentação em grande escala, com
-                  pratos variados, opções artesanais e sabores produzidos com
-                  ingredientes locais.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img
-                src="./img/infraestrutura/praca-alimentacao.jpg"
-                alt="Praça de Alimentação"
-              />
-
-              <div class="card-info">
-                <h3>Praça de Alimentação</h3>
-
-                <p>
-                  Espaço amplo com diversas opções gastronômicas, incluindo
-                  refeições, lanches, cafés e produtos preparados com qualidade.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img src="./img/infraestrutura/pracinha.jpg" alt="Pracinha" />
-
-              <div class="card-info">
-                <h3>Pracinha</h3>
-
-                <p>
-                  Espaço gastronômico com opções refrescantes e variadas,
-                  reunindo sabores como açaí, sorvetes, poke e churrasco.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img src="./img/infraestrutura/enfermaria.jpg" alt="Enfermaria" />
-
-              <div class="card-info">
-                <h3>Enfermaria</h3>
-
-                <p>
-                  Estrutura de atendimento e cuidado aos visitantes, com equipe
-                  preparada para garantir segurança e bem-estar durante os
-                  eventos.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img
-                src="./img/infraestrutura/espaco-guardia.jpg"
-                alt="Espaço Guardiã"
-              />
-
-              <div class="card-info">
-                <h3>Espaço Guardiã</h3>
-
-                <p>
-                  Ambiente de acolhimento e cuidado, criado para oferecer
-                  conforto, segurança e suporte aos visitantes durante os
-                  eventos.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img
-                src="./img/infraestrutura/duchas.jpg"
-                alt="Duchas e Banheiros"
-              />
-
-              <div class="card-info">
-                <h3>Duchas e Banheiros</h3>
-
-                <p>
-                  Estrutura completa para conforto dos visitantes, com duchas
-                  quentes e frias e manutenção contínua durante os eventos.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img
-                src="./img/infraestrutura/residuos.jpg"
-                alt="Espaço de Coleta Seletiva de Resíduos Catia Galheigo"
-              />
-
-              <div class="card-info">
-                <h3>Coleta Seletiva de Resíduos</h3>
-
-                <p>
-                  Espaço dedicado à separação e destinação correta de resíduos,
-                  promovendo sustentabilidade e cuidado com o meio ambiente.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img
-                src="./img/infraestrutura/atelie-ivana.jpg"
-                alt="Ateliê Ivana"
-              />
-
-              <div class="card-info">
-                <h3>Ateliê Ivana</h3>
-
-                <p>
-                  Espaço criativo onde arte, reaproveitamento e sustentabilidade
-                  se unem para transformar ideias em cenários e experiências
-                  únicas.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img src="./img/infraestrutura/pousada.jpg" alt="Pousadas" />
-
-              <div class="card-info">
-                <h3>Pousadas</h3>
-
-                <p>
-                  Hospedagens confortáveis em meio à natureza, com opções
-                  variadas para proporcionar descanso e uma experiência
-                  acolhedora.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img src="./img/infraestrutura/camping.jpeg" alt="Camping" />
-
-              <div class="card-info">
-                <h3>Camping</h3>
-
-                <p>
-                  Área ampla para hospedagem em barracas, com estrutura completa
-                  de duchas e banheiros para conforto dos visitantes.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img
-                src="./img/infraestrutura/hotel-barraca.jpg"
-                alt="Hotel de Barracas"
-              />
-
-              <div class="card-info">
-                <h3>Hotel de Barracas</h3>
-
-                <p>
-                  Hospedagem em barracas estruturadas com conforto, segurança e
-                  estrutura privativa para uma experiência diferenciada.
-                </p>
-              </div>
-            </div>
-
-            <div class="explore-card">
-              <img src="./img/infraestrutura/seguranca.jpg" alt="Segurança" />
-
-              <div class="card-info">
-                <h3>Segurança</h3>
-
-                <p>
-                  Estrutura com monitoramento, equipe especializada e protocolos
-                  de acesso para garantir tranquilidade e proteção aos
-                  visitantes.
-                </p>
-              </div>
-            </div>
+            <button
+              class="explore-arrow explore-arrow-next"
+              type="button"
+              aria-label="Ver próximo espaço"
+            >
+              &#10095;
+            </button>
+
+            <div
+              class="explore-pagination"
+              aria-label="Navegação dos espaços da infraestrutura"
+            ></div>
           </div>
-
-          <div class="explore-pagination"></div>
         </div>
       </section>
+
       <section class="conexoes" id="conexoes">
         <div class="container">
           <div class="conexoes-header">

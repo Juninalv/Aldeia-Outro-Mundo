@@ -1,3 +1,7 @@
+/* ==========================================================
+   SEÇÃO PROJETOS
+========================================================== */
+
 .projetos {
   display: grid;
   grid-template-columns: 35% 65%;
@@ -7,20 +11,29 @@
   background: var(--verde-escuro);
 }
 
+/* ==========================================================
+   INFORMAÇÕES DA SEÇÃO
+========================================================== */
+
 .projetos-info {
   color: var(--bege);
 }
 
 .projetos-info h2 {
-  font-size: 3rem;
   margin-bottom: 20px;
+  font-size: 3rem;
+  color: var(--bege);
 }
 
 .projetos-info p {
-  line-height: 1.8;
-  color: var(--cinza-claro);
   margin-bottom: 30px;
+  color: var(--cinza-claro);
+  line-height: 1.8;
 }
+
+/* ==========================================================
+   BOTÃO PRINCIPAL
+========================================================== */
 
 .btn-principal {
   display: inline-block;
@@ -29,55 +42,110 @@
   border-radius: 50px;
   color: var(--bege);
   text-decoration: none;
-  transition: 0.3s;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .btn-principal:hover {
   background: var(--branco);
   color: var(--verde-escuro);
+  border-color: var(--branco);
+  transform: translateY(-2px);
 }
 
-.projetos-container {
-  width: 100%;
-  overflow: hidden;
+.btn-principal:focus-visible {
+  outline: 3px solid var(--amarelo-claro);
+  outline-offset: 4px;
 }
+
+/* ==========================================================
+   CONTAINER DO SLIDER
+========================================================== */
+
+.projetos-container {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+
+  /*
+    Precisa ficar visível para não cortar as setas
+    posicionadas nas laterais.
+  */
+  overflow: visible;
+}
+
+.projetos-container:focus {
+  outline: none;
+}
+
+.projetos-container:focus-visible {
+  outline: 2px solid var(--amarelo-claro);
+  outline-offset: 8px;
+  border-radius: 20px;
+}
+
+/* ==========================================================
+   TRILHA DO SLIDER
+========================================================== */
 
 .projetos-grid {
   display: flex;
   gap: 24px;
+  width: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  cursor: grab;
   scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
+
+  cursor: grab;
 }
 
 .projetos-grid::-webkit-scrollbar {
   display: none;
 }
 
-.projetos-grid:active {
+.projetos-grid:active,
+.projetos-grid.dragging {
   cursor: grabbing;
 }
 
 .projetos-grid.dragging {
-  cursor: grabbing;
   user-select: none;
+  scroll-snap-type: none;
 }
+
+/* ==========================================================
+   CARDS
+========================================================== */
 
 .projeto-card {
   flex: 0 0 45%;
+  min-width: 0;
+  overflow: hidden;
+  scroll-snap-align: start;
   background: var(--bege);
   border-radius: 20px;
-  overflow: hidden;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .projeto-card:hover {
   transform: translateY(-8px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18);
 }
+
+/* ==========================================================
+   IMAGEM
+========================================================== */
 
 .projeto-imagem {
   width: 100%;
@@ -85,11 +153,19 @@
   overflow: hidden;
 }
 
+.projeto-imagem picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .projeto-imagem img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  user-select: none;
+  pointer-events: none;
   transition: transform 0.5s ease;
 }
 
@@ -97,20 +173,26 @@
   transform: scale(1.05);
 }
 
+/* ==========================================================
+   CONTEÚDO DOS CARDS
+========================================================== */
+
 .projeto-info-card {
   padding: 24px;
 }
 
 .projeto-info-card h3 {
-  color: var(--verde-claro);
-  font-size: 1.3rem;
   margin-bottom: 12px;
+  color: var(--verde-escuro);
+  font-size: 1.3rem;
+  line-height: 1.35;
+  font-weight: 700;
 }
 
 .projeto-info-card p {
+  margin-bottom: 18px;
   color: var(--cinza-escuro);
   line-height: 1.7;
-  margin-bottom: 18px;
 }
 
 .projeto-info-card a {
@@ -119,29 +201,148 @@
   color: var(--verde-escuro);
   text-decoration: none;
   font-weight: 600;
-  transition: 0.3s;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .projeto-info-card a:hover {
   transform: translateX(5px);
 }
 
-.slider-btn,
-.slider-dots {
-  display: none !important;
+.projeto-info-card a:focus-visible {
+  outline: 3px solid var(--verde-claro);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
+
+/* ==========================================================
+   SETAS
+========================================================== */
+
+.projetos-arrow {
+  position: absolute;
+  top: 45%;
+  z-index: 10;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: rgba(9, 24, 14, 0.92);
+  color: var(--bege);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.projetos-arrow:hover {
+  background: var(--amarelo-claro);
+  color: var(--verde-escuro);
+  border-color: var(--amarelo-claro);
+}
+
+.projetos-arrow:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.projetos-arrow-prev {
+  left: -60px;
+}
+
+.projetos-arrow-next {
+  right: -30px;
+}
+
+.projetos-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.projetos-arrow:focus-visible {
+  outline: 3px solid var(--amarelo-claro);
+  outline-offset: 4px;
+}
+
+/* ==========================================================
+   BOLINHAS
+========================================================== */
+
+.slider-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  padding-top: 28px;
+}
+
+.slider-pagination-button {
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition:
+    width 0.3s ease,
+    background 0.3s ease,
+    border-radius 0.3s ease,
+    transform 0.3s ease;
+}
+
+.slider-pagination-button:hover {
+  background: rgba(255, 255, 255, 0.65);
+  transform: scale(1.15);
+}
+
+.slider-pagination-button.active {
+  width: 30px;
+  border-radius: 20px;
+  background: var(--amarelo-claro);
+}
+
+.slider-pagination-button:focus-visible {
+  outline: 3px solid var(--amarelo-claro);
+  outline-offset: 4px;
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
 
 @media (max-width: 1024px) {
   .projetos {
     grid-template-columns: 1fr;
     gap: 50px;
+
     padding: 80px 5%;
   }
 
   .projetos-info {
-    text-align: center;
+    width: 100%;
     max-width: 800px;
+
     margin: 0 auto;
+
+    text-align: center;
   }
 
   .projetos-info h2 {
@@ -150,6 +351,7 @@
 
   .projetos-info p {
     max-width: 650px;
+
     margin: 0 auto 30px;
   }
 
@@ -158,21 +360,41 @@
   }
 
   .projeto-card {
-    flex: 0 0 60%;
+    flex-basis: 60%;
+  }
+
+  .projetos-arrow {
+    width: 46px;
+    height: 46px;
+
+    font-size: 21px;
+  }
+
+  .projetos-arrow-prev {
+    left: -18px;
+  }
+
+  .projetos-arrow-next {
+    right: -18px;
   }
 }
+
+/* ==========================================================
+   CELULAR
+========================================================== */
 
 @media (max-width: 768px) {
   .projetos {
     display: flex;
     flex-direction: column;
     gap: 40px;
+
     padding: 70px 20px;
   }
 
   .projetos-info {
-    text-align: center;
     width: 100%;
+    text-align: center;
   }
 
   .projetos-info h2 {
@@ -188,6 +410,7 @@
   .btn-principal {
     width: 100%;
     max-width: 280px;
+
     text-align: center;
   }
 
@@ -197,12 +420,18 @@
 
   .projetos-grid {
     gap: 16px;
+
     padding-bottom: 10px;
   }
 
   .projeto-card {
-    flex: 0 0 85%;
+    flex-basis: 85%;
+
     border-radius: 16px;
+  }
+
+  .projeto-card:hover {
+    transform: none;
   }
 
   .projeto-imagem {
@@ -221,7 +450,34 @@
     font-size: 0.95rem;
     line-height: 1.7;
   }
+
+  /*
+    No celular, o usuário navega deslizando com o dedo.
+  */
+
+  .projetos-arrow {
+    display: none;
+  }
+
+  .slider-dots {
+    gap: 8px;
+
+    padding-top: 20px;
+  }
+
+  .slider-pagination-button {
+    width: 9px;
+    height: 9px;
+  }
+
+  .slider-pagination-button.active {
+    width: 24px;
+  }
 }
+
+/* ==========================================================
+   CELULARES PEQUENOS
+========================================================== */
 
 @media (max-width: 480px) {
   .projetos {
@@ -233,7 +489,7 @@
   }
 
   .projeto-card {
-    flex: 0 0 92%;
+    flex-basis: 92%;
   }
 
   .projeto-imagem {
