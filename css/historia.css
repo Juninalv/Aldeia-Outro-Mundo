@@ -1,12 +1,20 @@
+/* ==========================================================
+   HISTÓRIA
+========================================================== */
+
 .historia {
   padding: 120px 0;
   background: var(--verde-escuro);
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .historia h2 {
   color: var(--bege);
 }
+
+/* ==========================================================
+   CABEÇALHO DA SEÇÃO
+========================================================== */
 
 .section-header {
   text-align: center;
@@ -32,43 +40,80 @@
   line-height: 1.7;
 }
 
+/* ==========================================================
+   SLIDER
+========================================================== */
+
+.timeline-slider {
+  position: relative;
+  width: 100%;
+}
+
 .timeline-container {
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
-  cursor: grab;
   width: 100%;
   max-width: 100%;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+
+  cursor: grab;
+}
+
+.timeline-container:active {
+  cursor: grabbing;
 }
 
 .timeline-container::-webkit-scrollbar {
   display: none;
 }
 
+/* ==========================================================
+   TRILHA DA LINHA DO TEMPO
+========================================================== */
+
 .timeline-track {
   display: flex;
   gap: 60px;
+
   width: max-content;
   padding: 30px 60px 60px;
+
   position: relative;
 }
 
 .timeline-track::before {
   content: "";
+
   position: absolute;
+  top: 250px;
   left: 60px;
   right: 60px;
-  top: 250px;
+
   height: 2px;
   background: rgba(182, 165, 122, 0.4);
 }
 
+/* ==========================================================
+   ITENS
+========================================================== */
+
 .timeline-item {
   width: 320px;
   flex-shrink: 0;
+
+  scroll-snap-align: start;
+
   opacity: 0;
   transform: translateY(40px);
-  transition: 1.2s ease;
+
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease;
 }
 
 .timeline-item.show {
@@ -76,34 +121,54 @@
   transform: translateY(0);
 }
 
+/* ==========================================================
+   IMAGENS
+========================================================== */
+
 .timeline-image {
   width: 100%;
   height: 220px;
+
   border-radius: 20px;
   overflow: hidden;
+
   margin-bottom: 40px;
 }
 
 .timeline-image img {
   width: 100%;
   height: 100%;
+
+  display: block;
   object-fit: cover;
-  transition: 0.5s;
+
+  transition: transform 0.5s ease;
 }
 
 .timeline-image:hover img {
   transform: scale(1.08);
 }
 
+/* ==========================================================
+   PONTO DA LINHA DO TEMPO
+========================================================== */
+
 .timeline-dot {
   width: 18px;
   height: 18px;
-  border-radius: 50%;
-  background: var(--amarelo-claro);
+
   margin: 0 auto;
+
   position: relative;
   z-index: 2;
+
+  border-radius: 50%;
+  background: var(--amarelo-claro);
 }
+
+/* ==========================================================
+   CONTEÚDO
+========================================================== */
 
 .timeline-content {
   text-align: center;
@@ -121,6 +186,131 @@
   line-height: 1.6;
 }
 
+/* ==========================================================
+   SETAS
+========================================================== */
+
+.timeline-arrow {
+  position: absolute;
+  top: 235px;
+  z-index: 10;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+
+  background: rgba(20, 48, 37, 0.9);
+  color: var(--bege);
+
+  font-size: 24px;
+  line-height: 1;
+
+  cursor: pointer;
+  transform: translateY(-50%);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.timeline-arrow:hover {
+  background: var(--amarelo-claro);
+  color: var(--verde-escuro);
+  border-color: var(--amarelo-claro);
+}
+
+.timeline-arrow:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.timeline-arrow-prev {
+  left: -70px;
+}
+
+.timeline-arrow-next {
+  right: -70px;
+}
+
+.timeline-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.timeline-arrow:focus-visible {
+  outline: 3px solid var(--amarelo-claro);
+  outline-offset: 4px;
+}
+
+/* ==========================================================
+   PAGINAÇÃO
+========================================================== */
+
+.timeline-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  padding: 5px 20px 0;
+}
+
+.timeline-pagination-button {
+  width: 11px;
+  height: 11px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.3);
+
+  cursor: pointer;
+
+  transition:
+    width 0.3s ease,
+    border-radius 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.timeline-pagination-button:hover {
+  background: rgba(255, 255, 255, 0.65);
+  transform: scale(1.15);
+}
+
+.timeline-pagination-button.active {
+  width: 30px;
+  border-radius: 20px;
+  background: var(--amarelo-claro);
+}
+
+.timeline-pagination-button:focus-visible {
+  outline: 3px solid var(--amarelo-claro);
+  outline-offset: 4px;
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
 @media (max-width: 1024px) {
   .historia {
     padding: 90px 0;
@@ -137,9 +327,9 @@
   }
 
   .timeline-track::before {
+    top: 230px;
     left: 40px;
     right: 40px;
-    top: 230px;
   }
 
   .timeline-item {
@@ -153,7 +343,26 @@
   .timeline-content h3 {
     font-size: 24px;
   }
+
+  .timeline-arrow {
+    top: 215px;
+    width: 46px;
+    height: 46px;
+    font-size: 21px;
+  }
+
+  .timeline-arrow-prev {
+    left: 10px;
+  }
+
+  .timeline-arrow-next {
+    right: 10px;
+  }
 }
+
+/* ==========================================================
+   CELULAR
+========================================================== */
 
 @media (max-width: 768px) {
   .historia {
@@ -178,10 +387,6 @@
     font-size: 0.95rem;
   }
 
-  .timeline-container {
-    overflow-x: auto;
-  }
-
   .timeline-track {
     gap: 20px;
     padding: 20px 20px 50px;
@@ -191,6 +396,7 @@
     top: 200px;
     left: 20px;
     right: 20px;
+
     height: 1px;
   }
 
@@ -221,12 +427,51 @@
     font-size: 0.9rem;
     line-height: 1.7;
   }
+
+  .timeline-arrow {
+    top: 185px;
+
+    width: 42px;
+    height: 42px;
+
+    font-size: 18px;
+  }
+
+  .timeline-arrow-prev {
+    left: 8px;
+  }
+
+  .timeline-arrow-next {
+    right: 8px;
+  }
+
+  .timeline-pagination {
+    gap: 8px;
+  }
+
+  .timeline-pagination-button {
+    width: 9px;
+    height: 9px;
+  }
+
+  .timeline-pagination-button.active {
+    width: 24px;
+  }
 }
+
+/* ==========================================================
+   CELULARES PEQUENOS
+========================================================== */
 
 @media (max-width: 480px) {
   .timeline-track {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .timeline-track::before {
+    left: 16px;
+    right: 16px;
   }
 
   .timeline-item {
@@ -239,5 +484,22 @@
 
   .timeline-content h3 {
     font-size: 1.2rem;
+  }
+
+  .timeline-arrow {
+    top: 165px;
+
+    width: 38px;
+    height: 38px;
+
+    font-size: 16px;
+  }
+
+  .timeline-arrow-prev {
+    left: 5px;
+  }
+
+  .timeline-arrow-next {
+    right: 5px;
   }
 }
