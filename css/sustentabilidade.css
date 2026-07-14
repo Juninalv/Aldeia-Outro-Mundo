@@ -42,11 +42,11 @@
   height: 100%;
   object-fit: cover;
 }
-
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.15));
+
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.6));
 }
 
 .card-content {

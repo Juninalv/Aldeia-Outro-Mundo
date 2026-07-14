@@ -345,10 +345,7 @@
   }
 
   .timeline-arrow {
-    top: 215px;
-    width: 46px;
-    height: 46px;
-    font-size: 21px;
+    display: none;
   }
 
   .timeline-arrow-prev {
@@ -429,12 +426,7 @@
   }
 
   .timeline-arrow {
-    top: 185px;
-
-    width: 42px;
-    height: 42px;
-
-    font-size: 18px;
+    display: none;
   }
 
   .timeline-arrow-prev {
@@ -487,12 +479,7 @@
   }
 
   .timeline-arrow {
-    top: 165px;
-
-    width: 38px;
-    height: 38px;
-
-    font-size: 16px;
+    display: none;
   }
 
   .timeline-arrow-prev {
