@@ -4,4 +4,4 @@ Este repositório contém um projeto desenvolvido para um cliente real, com o ob
 
 O projeto possui finalidade comercial e pode receber atualizações, correções e melhorias conforme necessário.
 
-Acesse: https://aldeiaoutromundo.com.br/
+Acesse → https://aldeiaoutromundo.com.br/
