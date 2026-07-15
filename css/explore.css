@@ -340,18 +340,15 @@
   }
 
   .explore-arrow {
-    width: 46px;
-    height: 46px;
-
-    font-size: 21px;
+    display: none;
   }
 
   .explore-arrow-prev {
-    left: -18px;
+    display: none;
   }
 
   .explore-arrow-next {
-    right: -18px;
+    display: none;
   }
 }
 

@@ -317,11 +317,11 @@
   }
 
   .timeline-arrow-prev {
-    left: 10px;
+    display: none;
   }
 
   .timeline-arrow-next {
-    right: 10px;
+    display: none;
   }
 }
 
@@ -398,11 +398,11 @@
   }
 
   .timeline-arrow-prev {
-    left: 8px;
+    display: none;
   }
 
   .timeline-arrow-next {
-    right: 8px;
+    display: none;
   }
 
   .timeline-pagination {
@@ -451,10 +451,10 @@
   }
 
   .timeline-arrow-prev {
-    left: 5px;
+    display: none;
   }
 
   .timeline-arrow-next {
-    right: 5px;
+    display: none;
   }
 }

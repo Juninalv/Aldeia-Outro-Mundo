@@ -364,18 +364,15 @@
   }
 
   .projetos-arrow {
-    width: 46px;
-    height: 46px;
-
-    font-size: 21px;
+    display: none;
   }
 
   .projetos-arrow-prev {
-    left: -18px;
+    display: none;
   }
 
   .projetos-arrow-next {
-    right: -18px;
+    display: none;
   }
 }
 
